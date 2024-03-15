@@ -1,0 +1,109 @@
+.homeResult {
+	width: 100%;
+	background-color: #000000;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	backdrop-filter: blur(8px);
+	.content {
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 100vh;
+		padding-inline: 2rem;
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-block: 1.5rem;
+			.divContent1 {
+				display: flex;
+				align-items: center;
+				// justify-content: center;
+				gap: 0.8rem;
+				img {
+					width: 30px;
+					height: 35px;
+				}
+				span {
+					color: #ecf1f0;
+					font-weight: 700;
+					font-size: 1.4rem;
+				}
+			}
+			nav {
+				ul {
+					display: flex;
+					align-items: center;
+					gap: 1.2rem;
+					li {
+						font-weight: 400;
+						font-size: 1rem;
+						color: #ecf1f0;
+						&:hover {
+							transition: all 0.3s ease;
+							color: #0fae96;
+						}
+					}
+					.ulDiv2 {
+						display: flex;
+						align-items: center;
+						gap: 0.3rem;
+						margin-left: 1rem;
+						select {
+							color: #ecf1f0;
+							font-weight: 400;
+							font-size: 1rem;
+							option {
+								color: #ecf1f0;
+								font-weight: 400;
+								font-size: 1rem;
+							}
+						}
+					}
+				}
+			}
+		}
+		main {
+			margin-top: 75px;
+			padding-block: 4rem;
+			.section1 {
+				display: flex;
+				justify-content: space-between;
+				align-items: start;
+				.section1ContentDiv {
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					gap: 3rem;
+					h2 {
+						color: #ecf1f0;
+						font-weight: 700;
+						font-size: 2.1rem;
+					}
+					p {
+						color: #d4d4d4;
+						font-weight: 400;
+						font-size: 1.5rem;
+					}
+					button {
+						color: #ecf1f0;
+						font-weight: 400;
+						font-size: 1rem;
+						background-color: #0fae96;
+						padding-block: 0.7rem;
+						padding-inline: 1.8rem;
+						border-radius: 4px;
+						border: none;
+					}
+				}
+			}
+		}
+		footer {
+			margin-top: auto;
+		}
+	}
+}
