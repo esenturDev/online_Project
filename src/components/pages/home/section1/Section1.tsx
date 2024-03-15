@@ -1,14 +1,13 @@
-import scss from './Footer.module.scss';
-const Footer = () => {
+import scss from './Section1.module.scss';
+
+export const Section1 = () => {
   return (
-    <footer>
+    <div>
       <div className="container">
         <div className={scss.content}>
           
         </div>
       </div>
-    </footer>
+    </div>
   )
 }
-
-export default Footer

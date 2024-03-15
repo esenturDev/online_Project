@@ -2,6 +2,12 @@ import scss from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <div>Header</div>
+    <header>
+      <div className="container">
+        <div className={scss.content}>
+          
+        </div>
+      </div>
+    </header>
   )
 }
