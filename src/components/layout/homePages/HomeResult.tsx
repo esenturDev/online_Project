@@ -4,7 +4,15 @@ const HomeResult = () => {
     <div className={scss.homeResult}>
       <div className="container">
         <div className={scss.content}>
-          
+          <header>
+
+          </header>
+          <main>
+
+          </main>
+          <footer>
+            
+          </footer>
         </div>
       </div>
     </div>
