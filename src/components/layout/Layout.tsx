@@ -6,7 +6,7 @@ import LoginPages from "../pages/loginPages/LoginPages";
 import { RegistrPages } from "../pages/tegistrPages/RegistrPages";
 import { HomePages } from "../pages/home/HomePages";
 import Error from "../pages/error/Error";
-import HomeResult from "../homePages/HomeResult";
+import HomeResult from "./homePages/HomeResult";
 const Layout = () => {
 	const { pathname } = useLocation();
 	if (pathname === "/login") {
@@ -21,6 +21,12 @@ const Layout = () => {
 				<Route path="/registr" element={<RegistrPages />} />
 			</Routes>
 		);
+	} else if (pathname === "/") {
+		return (
+			<Routes>
+				<Route path="/" element={<HomeResult />} />
+			</Routes>
+		);
 	}
 	return (
 		<div className={scss.layout}>
@@ -28,8 +34,6 @@ const Layout = () => {
 			<main>
 				<Routes>
 					<Route path="/home" element={<HomePages />} />
-					
-					<Route path="/" element={<HomeResult />} />
 					<Route path="*" element={<Error />} />
 				</Routes>
 			</main>
