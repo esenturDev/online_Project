@@ -5,6 +5,7 @@ header {
 	top: 0;
 	width: 100%;
 	backdrop-filter: blur(8px);
+	z-index: 50;
 	.content {
 		display: flex;
 		justify-content: space-between;
