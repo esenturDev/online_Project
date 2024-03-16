@@ -9,7 +9,15 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ['auth']
     }),
+    postRegisterUsers: build.mutation<AUTH.PostRegistrResponse, AUTH.PostRegistrRequest>({
+      query: ({email, userName, password}) => ({
+        url: '/users',
+        method: 'POST',
+        body: {email, userName, password},
+      }),
+      invalidatesTags: ['auth']
+    })
   })
 })
 
-export const {usePostLoginUsersMutation} = api
+export const {usePostLoginUsersMutation, usePostRegisterUsersMutation} = api

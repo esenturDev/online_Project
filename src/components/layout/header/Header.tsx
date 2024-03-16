@@ -9,7 +9,7 @@ export const Header: FC<{
     <header>
       <div className="container">
         <div className={scss.content}>
-
+          
         </div>
       </div>
     </header>

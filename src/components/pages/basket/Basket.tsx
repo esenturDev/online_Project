@@ -1,9 +1,13 @@
-import scss from './Basket.module.scss';
+import scss from "./Basket.module.scss";
 
 const Basket = () => {
-  return (
-    <div>Basket</div>
-  )
-}
+	return (
+		<div className={scss.basketPages}>
+			<div className="container">
+				<div className={scss.content}></div>
+			</div>
+		</div>
+	);
+};
 
-export default Basket
+export default Basket;

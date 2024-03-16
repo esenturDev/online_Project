@@ -40,7 +40,7 @@ const HomeResult = () => {
 							</ul>
 						</nav>
 						<div>
-							<button onClick={() => navigate("/login")}>Login</button>
+							<button className={scss.buttonIsLogin} onClick={() => navigate("/login")}>Login</button>
 						</div>
 					</header>
 					<main>
@@ -141,15 +141,17 @@ const HomeResult = () => {
 									<img src={logo9} alt="logo9" />
 									<p>Анонимность</p>
 								</div>
-								<div>
+								<div className={scss.divCard}>
 									<img src={logo10} alt="logo10" />
 									<p>
 										Проверка на наличие <br /> угроз
 									</p>
 								</div>
-								<div>
+								<div className={scss.divCard}>
 									<img src={logo11} alt="logo11" />
-									<p>Обнаружение и <br /> предотвращение аттак</p>
+									<p>
+										Обнаружение и <br /> предотвращение аттак
+									</p>
 								</div>
 							</div>
 						</section>

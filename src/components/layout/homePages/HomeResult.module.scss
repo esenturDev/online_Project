@@ -69,6 +69,23 @@
 					}
 				}
 			}
+			div {
+				.buttonIsLogin {
+					color: #0fae96;
+					font-weight: 400;
+					font-size: 1rem;
+					border: 1px solid #0fae96;
+					border-radius: 4px;
+					padding-block: 0.7rem;
+					padding-inline: 1.7rem;
+					background-color: transparent;
+					&:hover {
+						transition: all 0.4s ease;
+						background-color: #0fae96;
+						color: #000000;
+					}
+				}
+			}
 		}
 		main {
 			height: auto;
@@ -185,7 +202,7 @@
 			.sectionFooter {
 				display: flex;
 				flex-direction: column;
-				gap: 2rem;
+				gap: 5rem;
 				h2 {
 					text-align: center;
 					color: #ecf1f0;
@@ -198,14 +215,41 @@
 					font-weight: 400;
 					font-size: 1.5rem;
 				}
-        .footerDivCards {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          .divCard {
-            
-          }
-        }
+				.footerDivCards {
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					flex-wrap: wrap;
+					.divCard {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						gap: 1rem;
+						width: 25.7rem;
+						height: 16.2rem;
+						border-radius: 18px;
+						padding: 32px, 16px, 32px, 16px;
+						border: 0.5px solid;
+
+						border-image-source: linear-gradient(
+								0deg,
+								rgba(255, 255, 255, 0.05),
+								rgba(255, 255, 255, 0.05)
+							),
+							linear-gradient(
+								109.41deg,
+								#0fae96 0%,
+								rgba(18, 14, 39, 0) 48.96%,
+								#7dcfe9 100%
+							);
+						p {
+							color: #ecf1f0;
+							font-weight: 400;
+							font-size: 1.5rem;
+						}
+					}
+				}
 			}
 		}
 	}
