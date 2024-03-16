@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router";
 import scss from "./LoginPages.module.scss";
 import { Field, Form, Formik } from "formik";
@@ -7,7 +8,7 @@ import { usePostLoginUsersMutation } from "../../../redux/api/auth";
 const LoginPages = () => {
 	const [postLogin] = usePostLoginUsersMutation();
 	const navigate = useNavigate();
-	const handleLoginUsers = async (values: string) => {
+	const handleLoginUsers = async (values: any) => {
 		const { email, password } = values;
 		const response = await postLogin({ email, password });
 		if ("data" in response) {
@@ -41,13 +42,20 @@ const LoginPages = () => {
 										type="email"
 										placeholder="Email"
 									/>
+									{touched.email && errors.email ? (
+										<div style={{ color: "red" }}>{errors.email}</div>
+									) : null}
 									<Field
 										id={"password"}
 										name={"password"}
 										type="password"
 										placeholder="Password"
 									/>
+									{touched.password && errors.password ? (
+										<div style={{ color: "red" }}>{errors.password}</div>
+									) : null}
 									<Button {...buttonInitialValue}>Login</Button>
+									<button onClick={() => navigate("/registr")}>Register</button>
 								</Form>
 							);
 						}}
