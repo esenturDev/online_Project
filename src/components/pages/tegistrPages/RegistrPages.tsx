@@ -20,9 +20,6 @@ export const RegistrPages = () => {
 		const { email, userName, password } = values;
 		const result = await postRegisterUsers({ email, password, userName });
 		if (result) {
-			// setEmail("");
-			// setPassword("");
-			// setUserName("");
 			navigate("/login");
 		}
 	};
