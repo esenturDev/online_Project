@@ -6,7 +6,7 @@ export const ProductsInputResult = Yup.object({
 		.min(3, "цена должен содержать max 3 символов")
 		.required("Обязательное поле"),
 	quantity: Yup.number()
-		.min(2, "количество должен содержать min 2 символов")
+		.min(1, "количество должен содержать min 2 символов")
 		.required("Обязательное поле"),
 	photoUrl: Yup.string()
 		.url("url должен содержать")

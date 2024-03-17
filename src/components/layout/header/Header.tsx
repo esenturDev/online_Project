@@ -12,16 +12,28 @@ import {
 	useGetProductsQuery,
 	usePostProductsMutation,
 } from "../../../redux/api/product";
-import { useGetProducFavoriteQuery } from "../../../redux/api/FavoriteProduct/FavoriteProduct";
+// import { useGetProducFavoriteQuery } from "../../../redux/api/FavoriteProduct/FavoriteProduct";
 import { useNavigate } from "react-router";
+import {
+	useGetBasketQuery,
+	usePatchBasketMutation,
+} from "../../../redux/api/basket/Basket";
 
 // import CustomForm from "../../Ul/customForm/CustomForm";
 
 export const Header: FC<{
-	setIsStyleResult: () => void;
+	setIsStyleResult: (value: boolean) => void;
 }> = ({ setIsStyleResult }) => {
+	const { data: basketProducts = [] } = useGetBasketQuery();
+	const [patchBasket] = usePatchBasketMutation();
+	console.log(basketProducts);
+
+	const basketPluseProducts = async (id: number, quantity: any) => {
+		await patchBasket(id, quantity);
+	};
+
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-	
+	const [isOpenModalBasket, setIsOpenModalBasket] = useState<boolean>(false);
 	const [count, setCount] = useState<number>(0);
 	const navigate = useNavigate();
 	// const { data } = useGetProducFavoriteQuery();
@@ -39,7 +51,7 @@ export const Header: FC<{
 		if (filtred) {
 			setCount(count + 1);
 			localStorage.setItem("count", JSON.stringify(count));
-		} 
+		}
 		if (!filtred) {
 			if (count === 0) {
 				setCount(0);
@@ -88,7 +100,7 @@ export const Header: FC<{
 								<img src={logo2} alt="logo1" />
 								<p>{count}</p>
 							</button>
-							<button>
+							<button onClick={() => setIsOpenModalBasket(true)}>
 								<img
 									className={scss.img}
 									src="https://www.istore.kg/static/img/union.svg"
@@ -100,6 +112,11 @@ export const Header: FC<{
 								onClick={() => setIsOpenModal(true)}
 								style={{ color: "blue" }}>
 								Add Products
+							</button>
+							<button
+								style={{ color: "black", backgroundColor: "pink" }}
+								onClick={() => setIsStyleResult(true)}>
+								Режим черный
 							</button>
 						</div>
 					</div>
@@ -198,6 +215,27 @@ export const Header: FC<{
 								}}
 							</Formik>
 						</div>
+					</Modal>,
+					document.getElementById("modal") as any
+				)}
+			{isOpenModalBasket &&
+				createPortal(
+					<Modal>
+						{basketProducts.map((item: any) => (
+							<div key={item._id}>
+								<img
+									style={{ width: "100px", height: "auto" }}
+									src={item.product.photoUrl}
+									alt={item.product.productName}
+								/>
+								<p style={{ color: "black" }}>{item.product.productName}</p>
+								<p style={{ color: "black" }}>{item.product.price}</p>
+								<p style={{ color: "black" }}>{item.product.quantity}</p>
+								<button onClick={() => basketPluseProducts(item.product._id, item.product.quantity)}>
+									-
+								</button>
+							</div>
+						))}
 					</Modal>,
 					document.getElementById("modal") as any
 				)}

@@ -9,7 +9,9 @@ const api = index.injectEndpoints({
 			query: () => ({
 				url: "/basket",
 				method: "GET",
-        headers: { Authorization: `Bearer ${localStorage.getItem("tokenBasket")}` },
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
+				},
 			}),
 			providesTags: ["products"],
 		}),
@@ -20,11 +22,32 @@ const api = index.injectEndpoints({
 			query: (_id) => ({
 				url: `/basket/${_id}`,
 				method: "POST",
-        headers: { Authorization: `Bearer ${localStorage.getItem("tokenBasket")}` },
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
+				},
+			}),
+			invalidatesTags: ["products"],
+		}),
+		patchBasket: build.mutation<
+			Products.PostProductsResponse,
+			Products.PostProductsRequest
+		>({
+			query: ( _id, quantity ) => ({
+				url: `/product-buy/${_id}`,
+				method: "PATCH",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
+				},
+				// body: quantity
+				body: { quantity },
 			}),
 			invalidatesTags: ["products"],
 		}),
 	}),
 });
 
-export const {useGetBasketQuery, usePostBasketMutation} = api
+export const {
+	useGetBasketQuery,
+	usePostBasketMutation,
+	usePatchBasketMutation,
+} = api;

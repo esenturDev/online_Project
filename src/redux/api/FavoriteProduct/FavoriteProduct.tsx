@@ -17,7 +17,7 @@ const api = index.injectEndpoints({
 		getProducFavorite: build.query<Products.GetProductsResponse, Products.GetProductsRequest>({
 			query: () => ({
 				url: "favorites-products",
-				// headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+				headers: { Authorization: `Bearer ${localStorage.getItem("tokenBasket")}` },
 				method: "GET",
 			}),
 			providesTags: ["products"],
@@ -27,7 +27,7 @@ const api = index.injectEndpoints({
 				url: `favorites-products/${_id}`,
 				method: "POST",
 				// body: _id,
-				// headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+				headers: { Authorization: `Bearer ${localStorage.getItem("tokenBasket")}` },
 			}),
 			invalidatesTags: ["products"],
 		}),

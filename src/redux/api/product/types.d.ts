@@ -5,15 +5,15 @@ namespace Products {
 		_id: number;
 		productName: string;
 		photoUrl: string;
-		price: number;
-		quantity: number;
+		price: string;
+		quantity: string;
 	}[];
 
 	type PostProductsResponse = {
 		_id: number;
 		productName: string;
-		price: number;
-		quantity: number;
+		price: string;
+		quantity: string;
 		photoUrl: string;
 		isFavorite: boolean;
 		isInBasket: boolean;

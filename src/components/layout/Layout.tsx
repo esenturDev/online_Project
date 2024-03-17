@@ -12,7 +12,7 @@ import Home from "../pages/Home";
 import { FaveriProductsResult } from "../pages/FaveriProductsResult";
 const Layout = () => {
 	const { pathname } = useLocation();
-	const [isStyleResult, setIsStyleResult] = useState("");
+	const [isStyleResult, setIsStyleResult] = useState(false);
 	if (pathname === "/login") {
 		return (
 			<Routes>
@@ -33,7 +33,7 @@ const Layout = () => {
 		);
 	}
 	return (
-		<div className={scss.layout}>
+		<div style={isStyleResult ? {backgroundColor: 'black'} : {backgroundColor: 'aliceblue', color: "#fff, !important" }}  className={scss.layout}>
 			<Header setIsStyleResult={setIsStyleResult} />
 			<main>
 				<Routes>
