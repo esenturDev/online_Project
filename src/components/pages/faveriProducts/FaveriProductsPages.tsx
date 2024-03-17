@@ -4,6 +4,7 @@ import scss from "./FaveriProductsPages.module.scss";
 
 const FaveriProductsPages = () => {
 	const { data } = useGetProducFavoriteQuery();
+  // const filtred = data?.filter((itemFilter) => itemFilter.productName )
 
 	return (
 		<div>

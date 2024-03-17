@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import scss from "./Header.module.scss";
 import { createPortal } from "react-dom";
 import Modal from "../../Ul/modal/Modal";
@@ -8,7 +8,12 @@ import logo2 from "../../../assets/photos/Button - Избранное (2).png";
 import { ProductsInputResult } from "../../../utils/ProductsValidetes";
 import Button, { ButtonProps } from "../../Ul/button/Button";
 import { Field, Form, Formik } from "formik";
-import { usePostProductsMutation } from "../../../redux/api/product";
+import {
+	useGetProductsQuery,
+	usePostProductsMutation,
+} from "../../../redux/api/product";
+import { useGetProducFavoriteQuery } from "../../../redux/api/FavoriteProduct/FavoriteProduct";
+import { useNavigate } from "react-router";
 
 // import CustomForm from "../../Ul/customForm/CustomForm";
 
@@ -16,6 +21,11 @@ export const Header: FC<{
 	setIsStyleResult: () => void;
 }> = ({ setIsStyleResult }) => {
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+	
+	const [count, setCount] = useState<number>(0);
+	const navigate = useNavigate();
+	// const { data } = useGetProducFavoriteQuery();
+	const { data } = useGetProductsQuery();
 	const [postProducts] = usePostProductsMutation();
 	const handlePostProducts = async (values: any) => {
 		const { productName, price, quantity, photoUrl } = values;
@@ -24,6 +34,26 @@ export const Header: FC<{
 		await postProducts({ productName, price, quantity, photoUrl });
 		setIsOpenModal(false);
 	};
+	function result() {
+		const filtred = data?.filter((itemId) => itemId.isFavorite === true);
+		if (filtred) {
+			setCount(count + 1);
+			localStorage.setItem("count", JSON.stringify(count));
+		} 
+		if (!filtred) {
+			if (count === 0) {
+				setCount(0);
+				localStorage.setItem("countResult", JSON.stringify(count));
+			} else {
+				setCount((prev) => prev - 1);
+				localStorage.setItem("countNoo", JSON.stringify(count));
+			}
+		}
+	}
+	useEffect(() => {
+		result();
+	}, [setCount]);
+
 	const buttonSubmitResult: ButtonProps = {
 		type: "submit",
 		variant: "primary",
@@ -54,8 +84,9 @@ export const Header: FC<{
 							<button>
 								<img src={logo1} alt="logo1" />
 							</button>
-							<button>
+							<button onClick={() => navigate("/favorites-products")}>
 								<img src={logo2} alt="logo1" />
+								<p>{count}</p>
 							</button>
 							<button>
 								<img
