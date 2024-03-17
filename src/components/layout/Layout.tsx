@@ -9,9 +9,10 @@ import ProductId from "../pages/ProductId";
 import Login from "../pages/Login";
 import { Resistr } from "../pages/Resistr";
 import Home from "../pages/Home";
+import { FaveriProductsResult } from "../pages/FaveriProductsResult";
 const Layout = () => {
 	const { pathname } = useLocation();
-	const [isStyleResult, setIsStyleResult] =  useState("")
+	const [isStyleResult, setIsStyleResult] = useState("");
 	if (pathname === "/login") {
 		return (
 			<Routes>
@@ -33,11 +34,15 @@ const Layout = () => {
 	}
 	return (
 		<div className={scss.layout}>
-			<Header setIsStyleResult={setIsStyleResult}/>
+			<Header setIsStyleResult={setIsStyleResult} />
 			<main>
 				<Routes>
 					<Route path="/home" element={<Home />} />
-					<Route path="/home/:productId" element={<ProductId/>}/>
+					<Route path="/home/:productId" element={<ProductId />} />
+					<Route
+						path="/favorites-products"
+						element={<FaveriProductsResult />}
+					/>
 					<Route path="*" element={<Error />} />
 				</Routes>
 			</main>

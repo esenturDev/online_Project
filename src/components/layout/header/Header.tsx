@@ -22,12 +22,12 @@ export const Header: FC<{
 		console.log("text");
 
 		await postProducts({ productName, price, quantity, photoUrl });
-		// setIsOpenModal(false);
+		setIsOpenModal(false);
 	};
 	const buttonSubmitResult: ButtonProps = {
 		type: "submit",
 		variant: "primary",
-		color: "blue",
+		color: "black",
 		width: "300px",
 	};
 	return (
@@ -159,6 +159,7 @@ export const Header: FC<{
 												<button onClick={() => setIsOpenModal(false)}>
 													Отменить
 												</button>
+												{/* <button onClick={handlePostProducts}>add</button> */}
 												<Button {...buttonSubmitResult}>Сохранить</Button>
 											</div>
 										</Form>
