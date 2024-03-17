@@ -43,6 +43,7 @@ export const Section3 = () => {
 							</div>
 						))}
 					</div>
+					<p style={{ color: "black" }}>section3</p>
 				</div>
 			</div>
 		</div>

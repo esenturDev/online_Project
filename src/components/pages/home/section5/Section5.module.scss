@@ -1,69 +1,17 @@
-.section5 {
+.section4 {
 	.content {
+		padding-block: 2rem;
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
-		padding-block: 3.5rem;
-		.textsDiv {
+		gap: 0.8rem;
+		.section4DivPhotos {
 			display: flex;
-			flex-direction: column;
 			align-items: center;
-			gap: 0.8rem;
-			h2 {
-				color: black;
-				font-weight: 600;
-				font-size: 3.5rem;
-			}
-			p {
-				color: #918a8a;
-				font-weight: 450;
-				font-size: 1.2rem;
-			}
-			a {
-				color: rgb(58, 58, 232);
-				font-weight: 450;
-				font-size: 1.2rem;
-			}
-		}
-		.divContentsPhotoAndTexts {
-			display: flex;
-			justify-content: space-evenly;
-			align-items: start;
-			.photosAndTextDiv {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 2.6rem;
-				img {
-					width: 13.3rem;
-					height: 15.2rem;
-				}
-				.divTexts {
-					display: flex;
-					flex-direction: column;
-					align-items: start;
-					gap: 0.9rem;
-					p {
-						color: #b0a7a7;
-						font-weight: 400;
-						font-size: 12px;
-					}
-					h2 {
-						color: rgb(16, 15, 15);
-						font-weight: 650;
-						font-size: 1.4rem;
-					}
-					.p {
-						color: #918a8a;
-						font-weight: 400;
-						font-size: 1rem;
-					}
-					a {
-						color: rgb(58, 58, 232);
-						font-weight: 400;
-						font-size: 1rem;
-					}
-				}
+			gap: 0.7rem;
+			img {
+				width: 50%;
+				height: auto;
+				border-radius: 12px;
 			}
 		}
 	}
