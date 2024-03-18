@@ -9,9 +9,11 @@ import { Field, Form, Formik } from "formik";
 import Button, { ButtonProps } from "../../Ul/button/Button";
 import Modal from "../../Ul/modal/Modal";
 import { ProductsInputResult } from "../../../utils/ProductsValidetes";
+import logo from "../../../assets/photos/Vector (7).png";
+import logo1 from "../../../assets/photos/Vector (8).png";
 import {
 	useEditProductsMutation,
-	useGetProductsQuery,
+	// useGetProductsQuery,
 	usePostProductsMutation,
 } from "../../../redux/api/product";
 import { createPortal } from "react-dom";
@@ -33,19 +35,19 @@ const FaveriProductsPages = () => {
 			quantity,
 			photoUrl,
 			_id,
-		}
+		};
 
 		await editProducts(newProduc);
 		setItemIdForms(false);
 	};
 
 	const [postProducFavorite] = usePostProducFavoriteMutation();
-	const [itemIdFavorite, setItemIdFavorite] = useState<any>(null)
+	const [itemIdFavorite, setItemIdFavorite] = useState<any>(null);
 	const [itemIdForms, setItemIdForms] = useState<number | false>(false);
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
 	const [postProducts] = usePostProductsMutation();
-	const { data: producData = [] } = useGetProductsQuery();
+	// const { data: producData = [] } = useGetProductsQuery();
 	const handlePostProducts = async (values: any) => {
 		const { productName, price, quantity, photoUrl } = values;
 		console.log("text");
@@ -55,8 +57,8 @@ const FaveriProductsPages = () => {
 	};
 	const handleOpenModal = (id: number) => {
 		setOpenModal(true);
-		setItemIdFavorite(id)
-	}
+		setItemIdFavorite(id);
+	};
 	const handleInputItemId = (id: number) => {
 		setItemIdForms(id);
 	};
@@ -69,7 +71,7 @@ const FaveriProductsPages = () => {
 	// const filtred = data?.filter((itemFilter) => itemFilter.productName )
 	return (
 		<>
-			<div>
+			<div className={scss.FaveriProductsPages}>
 				<div className="container">
 					<div className={scss.content}>
 						{/* {data?.map((item) => (
@@ -79,11 +81,13 @@ const FaveriProductsPages = () => {
               <h2>{item.productName}</h2>
             </div>
           ))} */}
-						<button onClick={() => setIsOpenModal(true)}>Add Produc</button>
+						<div>
+							<button onClick={() => setIsOpenModal(true)}>Add Produc</button>
+						</div>
 						{FaveriProduc?.map((item: any) => {
 							// const { productName, photoUrl } = item.product
 							return (
-								<div key={item._id}>
+								<div className={scss.cardIsProduc} key={item._id}>
 									{itemIdForms === item.product._id ? (
 										<>
 											<input
@@ -116,32 +120,46 @@ const FaveriProductsPages = () => {
 										</>
 									) : (
 										<>
-											<img
-												style={{ width: "100px", height: "100px" }}
-												src={item.product.photoUrl}
-												alt={item.product.productName}
-											/>
-											<h2>{item.product.productName}</h2>
-											<button
-												onClick={() => handleOpenModal(item.product._id)}>
-												delete
-											</button>
-											<button
-												style={{ color: "green", backgroundColor: "red" }}
-												onClick={() => handleInputItemId(item.product._id)}>
-												Edit Produc
-											</button>
+											<div className={scss.photoAndProducName}>
+												<h2>{item.product.productName}</h2>
+												<img
+													style={{ width: "100px", height: "100px" }}
+													src={item.product.photoUrl}
+													alt={item.product.productName}
+												/>
+											</div>
+											<div className={scss.divPriceAndQuantity}>
+												<p>{item.product.price} $</p>
+												<p>{item.product.quantity} шт </p>
+											</div>
+											<div className={scss.cardsProducButtons}>
+												<>
+													<img
+														style={{ cursor: "pointer" }}
+														onClick={() => handleInputItemId(item.product._id)}
+														src={logo}
+														alt="logo"
+													/>
+
+													<img
+														style={{ cursor: "pointer" }}
+														onClick={() => handleOpenModal(item.product._id)}
+														src={logo1}
+														alt="logo icon delete"
+													/>
+												</>
+											</div>
 										</>
 									)}
 								</div>
 							);
 						})}
-						{producData.map((itemProduc) => (
+						{/* {producData.map((itemProduc) => (
 							<div style={{ marginTop: "100px" }} key={itemProduc._id}>
 								<img src={itemProduc.photoUrl} alt={itemProduc.productName} />
 								<h2>{itemProduc.productName}</h2>
 							</div>
-						))}
+						))} */}
 					</div>
 				</div>
 			</div>
@@ -241,14 +259,17 @@ const FaveriProductsPages = () => {
 					</Modal>,
 					document.getElementById("modal") as any
 				)}
-				{openModal && createPortal(
+			{openModal &&
+				createPortal(
 					<>
-					<Modal>
-						<button onClick={() => setOpenModal(false)}>Noo</button>
-						<button onClick={() => postProducFavorite(itemIdFavorite)}>delete</button>
-					</Modal>
+						<Modal>
+							<button onClick={() => setOpenModal(false)}>Noo</button>
+							<button onClick={() => postProducFavorite(itemIdFavorite)}>
+								delete
+							</button>
+						</Modal>
 					</>,
-					document.getElementById('modal') as any
+					document.getElementById("modal") as any
 				)}
 		</>
 	);

@@ -65,7 +65,7 @@ export const Header: FC<{
 	function removeUsers() {
 		localStorage.removeItem("token");
 		localStorage.removeItem("isAuthUsers");
-		navigate("/")
+		navigate("/");
 	}
 	useEffect(() => {
 		result();
@@ -227,18 +227,36 @@ export const Header: FC<{
 				createPortal(
 					<Modal>
 						{basketProducts.map((item: any) => (
-							<div key={item._id}>
-								<img
-									style={{ width: "100px", height: "auto" }}
-									src={item.product.photoUrl}
-									alt={item.product.productName}
-								/>
-								<p style={{ color: "black" }}>{item.product.productName}</p>
-								<p style={{ color: "black" }}>{item.product.price}</p>
-								<p style={{ color: "black" }}>{item.product.quantity}</p>
-								<button onClick={() => basketPluseProducts(item.product._id)}>
-									-
-								</button>
+							<div className={scss.basketProducContainer} key={item._id}>
+								<p>Корзина</p>
+								<div>
+									<img
+										style={{ width: "100px", height: "auto" }}
+										src={item.product.photoUrl}
+										alt={item.product.productName}
+									/>
+									<div>
+										<div>
+											<p style={{ color: "black" }}>
+												{item.product.productName}
+											</p>
+											<p style={{ color: "black" }}>{item.product.price} $</p>
+										</div>
+										<div>
+											<button>-</button>
+											<span>{item.product.quantity}</span>
+											<button
+												onClick={() => basketPluseProducts(item.product._id)}>
+												+
+											</button>
+										</div>
+										<button>Купить</button>
+									</div>
+								</div>
+								<div>
+									<h3>Итого:</h3>
+									<p>{item.product.price}</p>
+								</div>
 							</div>
 						))}
 					</Modal>,
