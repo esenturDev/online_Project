@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import scss from "./ProducId.module.scss";
 import { useGetItenIdProducQuery } from "../../../redux/api/product";
-import {  useState } from "react";
+import { useState } from "react";
 const ProducId = () => {
 	const [isPhotoProducResultColor1, setIsPhotoProducResultColor1] =
 		useState(true);
@@ -9,15 +9,15 @@ const ProducId = () => {
 		useState(false);
 	const [isPhotoProducResultColor3, setIsPhotoProducResultColor3] =
 		useState(false);
-  
+	const [buttonActive, setButtonActive] = useState<boolean>(true);
+	const [buttonActive1, setButtonActive1] = useState<boolean>(false);
+	const [buttonActive2, setButtonActive2] = useState<boolean>(false);
 	const navigate = useNavigate();
 	const { id } = useParams();
 	console.log(id);
 	const { data } = useGetItenIdProducQuery(id!);
 	// console.log(itemIdProduc);
 	console.log(data);
-
-
 
 	return (
 		<div className={scss.ProducId}>
@@ -73,11 +73,54 @@ const ProducId = () => {
 							<div className={scss.memoryIphone}>
 								<p>Память</p>
 								<div className={scss.memoryButtons}>
-									<button>128 gb</button>
-									<button>256 gb</button>
-									<button>512 gb</button>
+									<button
+										onClick={() => {
+											setButtonActive(true);
+											setButtonActive1(false);
+											setButtonActive2(false);
+										}}
+										className={
+											buttonActive === true
+												? `${scss.buttonactive}`
+												: `${scss.buttonNoActive}`
+										}>
+										128 gb
+									</button>
+									<button
+										onClick={() => {
+											setButtonActive1(true);
+											setButtonActive(false);
+											setButtonActive2(false);
+										}}
+										className={
+											buttonActive1 === true
+												? `${scss.buttonactive}`
+												: `${scss.buttonNoActive}`
+										}>
+										256 gb
+									</button>
+									<button
+										onClick={() => {
+											setButtonActive2(true);
+											setButtonActive(false);
+											setButtonActive1(false);
+										}}
+										className={
+											buttonActive2 === true
+												? `${scss.buttonactive}`
+												: `${scss.buttonNoActive}`
+										}>
+										512 gb
+									</button>
 								</div>
 							</div>
+							<div className={scss.producPriceDiv}>
+                <p>{data?.price}</p>
+                <p>{data?.quantity}</p>
+                <div>
+                  
+                </div>
+              </div>
 						</div>
 					</div>
 				</div>

@@ -72,13 +72,33 @@
 						font-weight: 500;
 						font-size: 1.2rem;
 					}
-          .memoryButtons {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            
-          }
+					.memoryButtons {
+						display: flex;
+						align-items: center;
+						gap: 1rem;
+						.buttonactive {
+							padding-block: 12px;
+							padding-inline: 18px;
+							border-radius: 7px;
+							// color: black;
+							color: black;
+							border: 2px solid blue;
+						}
+						.buttonNoActive {
+							padding-block: 12px;
+							padding-inline: 18px;
+							border-radius: 7px;
+							color: black;
+							color: #5e5757;
+							// border: 2px solid blue;
+						}
+					}
 				}
+        .producPriceDiv {
+          display: flex;
+          flex-direction: column;
+          
+        }
 			}
 		}
 	}
