@@ -32,14 +32,13 @@ const api = index.injectEndpoints({
 			Products.PostProductsResponse,
 			Products.PostProductsRequest
 		>({
-			query: ( _id, quantity ) => ({
+			query: (_id) => ({
 				url: `/product-buy/${_id}`,
 				method: "PATCH",
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
-				},
+				// headers: {
+				// 	Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
+				// },
 				// body: quantity
-				body: { quantity },
 			}),
 			invalidatesTags: ["products"],
 		}),

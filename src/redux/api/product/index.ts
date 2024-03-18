@@ -29,8 +29,16 @@ const api = index.injectEndpoints({
 				method: "DELETE",
 			}),
 			invalidatesTags: ['products'],
+		}),
+		editProducts: build.mutation<Products.PostProductsResponse, Products.PostProductsRequest>({
+			query: ({_id ,productName, price, photoUrl, quantity}) => ({
+				url: `products/${_id}`,
+				method: "PATCH",
+				body:  {productName, price, photoUrl, quantity},
+			}),
+			invalidatesTags: ['products'],
 		})
 	}),
 });
 
-export const { useGetProductsQuery, usePostProductsMutation, useDeleteProductsMutation } = api;
+export const { useGetProductsQuery, usePostProductsMutation, useDeleteProductsMutation, useEditProductsMutation } = api;

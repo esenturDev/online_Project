@@ -28,8 +28,8 @@ export const Header: FC<{
 	const [patchBasket] = usePatchBasketMutation();
 	console.log(basketProducts);
 
-	const basketPluseProducts = async (id: number, quantity: any) => {
-		await patchBasket(id, quantity);
+	const basketPluseProducts = async (id: number) => {
+		await patchBasket(id);
 	};
 
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -62,6 +62,11 @@ export const Header: FC<{
 			}
 		}
 	}
+	function removeUsers() {
+		localStorage.removeItem("token");
+		localStorage.removeItem("isAuthUsers");
+		navigate("/")
+	}
 	useEffect(() => {
 		result();
 	}, [setCount]);
@@ -93,7 +98,7 @@ export const Header: FC<{
 							+996 (505) 802 000
 						</p>
 						<div className={scss.buttons}>
-							<button>
+							<button onClick={removeUsers}>
 								<img src={logo1} alt="logo1" />
 							</button>
 							<button onClick={() => navigate("/favorites-products")}>
@@ -231,7 +236,7 @@ export const Header: FC<{
 								<p style={{ color: "black" }}>{item.product.productName}</p>
 								<p style={{ color: "black" }}>{item.product.price}</p>
 								<p style={{ color: "black" }}>{item.product.quantity}</p>
-								<button onClick={() => basketPluseProducts(item.product._id, item.product.quantity)}>
+								<button onClick={() => basketPluseProducts(item.product._id)}>
 									-
 								</button>
 							</div>
