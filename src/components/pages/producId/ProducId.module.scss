@@ -1,0 +1,39 @@
+.ProducId {
+	.content {
+		padding-inline: 4rem;
+		.producItemId {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			img {
+				width: 21rem;
+				height: 24rem;
+			}
+			.contentProduc {
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				.products {
+					p {
+						color: #5e5757;
+						font-weight: 500;
+						font-size: 1.1rem;
+						cursor: pointer;
+					}
+					.p {
+						color: black;
+						font-weight: 600;
+						font-size: 2rem;
+					}
+				}
+				.productsColor {
+					display: flex;
+					flex-direction: column;
+          align-items: start;
+          gap: 0.8rem;
+          
+				}
+			}
+		}
+	}
+}

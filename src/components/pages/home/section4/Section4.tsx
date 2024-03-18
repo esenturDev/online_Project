@@ -1,4 +1,5 @@
 import scss from "./Section4.module.scss";
+// import vidoe from '../../../../assets/vid/large_2x.mp4';
 
 const Section4 = () => {
 	return (
@@ -83,6 +84,7 @@ const Section4 = () => {
 						</div>
 						<a href="#">выбрать</a>
 					</div>
+					{/* <iframe src={vidoe} ></iframe> */}
 				</div>
 			</div>
 		</div>
