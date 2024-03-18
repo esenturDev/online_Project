@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router";
 import scss from "./ProducId.module.scss";
 import { useGetItenIdProducQuery } from "../../../redux/api/product";
+import vidoeIsIphone from "../../../assets/vid/large_2x.mp4";
+import vidoeIsIphone2 from '../../../assets/vid/large_2x (1).mp4';
 import { useState } from "react";
 const ProducId = () => {
 	const [isPhotoProducResultColor1, setIsPhotoProducResultColor1] =
@@ -115,12 +117,63 @@ const ProducId = () => {
 								</div>
 							</div>
 							<div className={scss.producPriceDiv}>
-                <p>{data?.price}</p>
-                <p>{data?.quantity}</p>
-                <div>
-                  
-                </div>
-              </div>
+								<p>{data?.price} $</p>
+								<p>{data?.quantity}</p>
+								<div className={scss.buttonDiv}>
+									<button className={scss.buttonisAddProduc}>Купить</button>
+									<button>Оформить в кредит</button>
+									<button>Забронировать</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className={scss.divContents2}>
+						<h2>Описание</h2>
+						<div className={scss.GetInformedDivIsPhone}>
+							<h3>Цвет насквозь и насквозь. Прочный со всех сторон .</h3>
+							<iframe src={vidoeIsIphone}></iframe>
+						</div>
+						<div className={scss.divRecomentProducts}>
+							<div className={scss.productsDiv}>
+								<p>
+									Получите скидку при покупке <br /> iPhone 14 Pro или 14 Pro
+									Max,
+									<br /> воспользовавшись услугой Trade-In.
+								</p>
+								<a href="#">Подробнее</a>
+								<img
+									src="https://www.istore.kg/media/documents/2023-08-28/trade_in__fh1d4l94tiye_large_2x.jpg"
+									alt="logo"
+								/>
+							</div>
+							<div className={scss.productsDiv}>
+								<p>
+									Получите скидку при покупке <br /> iPhone 14 Pro или 14 Pro
+									Max,
+									<br /> воспользовавшись услугой Trade-In.
+								</p>
+								<a href="#">Подробнее</a>
+								<img
+									src="https://www.istore.kg/media/documents/2023-08-28/trade_in__fh1d4l94tiye_large_2x.jpg"
+									alt="logo"
+								/>
+							</div>
+							<div className={scss.productsDiv}>
+								<p>
+									Получите скидку при покупке <br /> iPhone 14 Pro или 14 Pro
+									Max,
+									<br /> воспользовавшись услугой Trade-In.
+								</p>
+								<a href="#">Подробнее</a>
+								<img
+									src="https://www.istore.kg/media/documents/2023-08-28/trade_in__fh1d4l94tiye_large_2x.jpg"
+									alt="logo"
+								/>
+							</div>
+						</div>
+						<div className={scss.recomedProducIsPhoneDiv}>
+							<p>Чип A16 Bionic. Проверенный на практике мощный процессор.</p>
+							<iframe src={vidoeIsIphone2}></iframe>
 						</div>
 					</div>
 				</div>

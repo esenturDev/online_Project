@@ -13,6 +13,7 @@
 				display: flex;
 				flex-direction: column;
 				align-items: start;
+				gap: 2.7rem;
 				.products {
 					p {
 						color: #5e5757;
@@ -77,28 +78,162 @@
 						align-items: center;
 						gap: 1rem;
 						.buttonactive {
-							padding-block: 12px;
-							padding-inline: 18px;
+							padding-block: 13px;
+							padding-inline: 21px;
 							border-radius: 7px;
 							// color: black;
 							color: black;
 							border: 2px solid blue;
+							background-color: transparent;
 						}
 						.buttonNoActive {
-							padding-block: 12px;
-							padding-inline: 18px;
+							padding-block: 13px;
+							padding-inline: 21px;
 							border-radius: 7px;
 							color: black;
 							color: #5e5757;
+							background-color: transparent;
 							// border: 2px solid blue;
 						}
 					}
 				}
-        .producPriceDiv {
-          display: flex;
-          flex-direction: column;
-          
-        }
+				.producPriceDiv {
+					display: flex;
+					flex-direction: column;
+					gap: 0.8rem;
+					p {
+						color: black;
+						font-weight: 750;
+						font-size: 1.7rem;
+					}
+					.buttonDiv {
+						display: flex;
+						align-items: center;
+						gap: 1rem;
+						.buttonisAddProduc {
+							color: #fff;
+							font-weight: 500;
+							font-size: 16px;
+							padding-inline: 3.6rem;
+							padding-block: 1rem;
+							border-radius: 5px;
+							border: none;
+							background-color: rgb(91, 91, 234);
+							&:hover {
+								color: #fff;
+								font-weight: 500;
+								font-size: 16px;
+								padding-inline: 3.6rem;
+								padding-block: 1rem;
+								border-radius: 5px;
+								border: none;
+								background-color: rgb(91, 91, 234);
+							}
+						}
+						button {
+							color: rgb(91, 91, 234);
+							background-color: transparent;
+							padding-inline: 2rem;
+							padding-block: 1rem;
+							border-radius: 5px;
+							border: none;
+							font-weight: 500;
+							font-size: 16px;
+							&:hover {
+								transition: all 0.3s ease;
+								background-color: rgba(217, 217, 251, 0.796);
+							}
+						}
+					}
+				}
+			}
+		}
+		.divContents2 {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+			padding-inline: 2rem;
+			padding-block: 2rem;
+			h2 {
+				text-align: start;
+				color: #403c3c;
+				font-weight: 550;
+				font-size: 1.2rem;
+				border-bottom: 2px solid blue;
+				width: 6rem;
+			}
+			.GetInformedDivIsPhone {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				h3 {
+					color: black;
+					text-align: center;
+					font-weight: 650;
+					font-size: 1.7rem;
+				}
+				iframe {
+					width: 100%;
+					height: 620px;
+					border-radius: 15px;
+				}
+			}
+			.divRecomentProducts {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: start;
+				gap: 0.6rem;
+				flex-wrap: wrap;
+				.productsDiv {
+					padding-block: 2rem;
+					padding-inline: 2rem;
+					border-radius: 15px;
+					background-color: black;
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					gap: 2.3rem;
+					width: 370px;
+					height: 550px;
+					box-shadow: 0px 0px 20px black;
+					&:hover {
+						transition: all 0.3s ease;
+						width: 372px;
+						// height: auto;
+						box-shadow: 0px 0px 25px black;
+					}
+					p {
+						color: #fff;
+						font-weight: 575;
+						font-size: 1.2rem;
+					}
+					a {
+						color: rgb(46, 46, 241);
+						font-weight: 575;
+						font-size: 1.2rem;
+					}
+					img {
+						width: 300px;
+						height: auto;
+					}
+				}
+			}
+			.recomedProducIsPhoneDiv {
+				display: flex;
+				flex-direction: column;
+				gap: 1.2rem;
+				padding-block: 3.5rem;
+				p {
+					color: black;
+					text-align: center;
+					font-weight: 650;
+					font-size: 1.7rem;
+				}
+				iframe {
+					width: 100%;
+					height: 620px;
+					border-radius: 15px;
+				}
 			}
 		}
 	}
