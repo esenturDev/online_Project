@@ -1,0 +1,20 @@
+footer {
+	width: 100%;
+	background: #2c2929;
+	padding-block: 2rem;
+	.content {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		p {
+			color: #beabab;
+			font-weight: 400;
+			font-size: 0.9rem;
+			span {
+				color: #fff;
+				font-weight: 700;
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
