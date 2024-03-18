@@ -29,9 +29,55 @@
 				.productsColor {
 					display: flex;
 					flex-direction: column;
-          align-items: start;
-          gap: 0.8rem;
-          
+					align-items: start;
+					gap: 0.8rem;
+					p {
+						color: black;
+						font-weight: 500;
+						font-size: 1.2rem;
+					}
+					.divPhotosColor {
+						display: flex;
+						align-items: center;
+						gap: 1.1rem;
+						.divPhotoColorResult1 {
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							background-color: #fff;
+							box-shadow: 0px 0px 2px rgb(31, 30, 30);
+						}
+						.divPhotoColorResult2 {
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							background-color: black;
+							box-shadow: 0px 0px 2px rgb(31, 30, 30);
+						}
+						.divPhotoColorResult3 {
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							background-color: rgb(49, 49, 248);
+							box-shadow: 0px 0px 2px rgb(31, 30, 30);
+						}
+					}
+				}
+				.memoryIphone {
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					p {
+						color: black;
+						font-weight: 500;
+						font-size: 1.2rem;
+					}
+          .memoryButtons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            
+          }
 				}
 			}
 		}
