@@ -1,0 +1,48 @@
+.section7 {
+	width: 100%;
+	height: 22rem;
+	background-color: rgb(243, 243, 241);
+	.content {
+		padding-block: 3rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-inline: 2rem;
+		.section7DivContent1 {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			gap: 1.1rem;
+			.div1 {
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				gap: 0.6rem;
+				img {
+					width: 7.5rem;
+					height: auto;
+				}
+				p {
+					color: #716666;
+					font-weight: 400;
+					font-size: 13px;
+				}
+				h3 {
+					color: black;
+					font-weight: 500;
+					font-size: 1.2rem;
+				}
+			}
+			.inconsWebSite {
+				display: flex;
+				align-items: center;
+				gap: 0.7rem;
+			}
+		}
+		.section7DivContent2 {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
