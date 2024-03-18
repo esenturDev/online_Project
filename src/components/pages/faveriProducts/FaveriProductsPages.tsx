@@ -17,31 +17,33 @@ import {
 import { createPortal } from "react-dom";
 const FaveriProductsPages = () => {
 	const { data: FaveriProduc = [] } = useGetProducFavoriteQuery();
-	const [price, setPrice] = useState<string>("");
+	const [openModal, setOpenModal] = useState<boolean>(false);
+	const [productName, setProductName] = useState<string>("");
 	const [price, setPrice] = useState<string>("");
 	const [quantity, setQuantity] = useState<string>("");
-	const [inputValue4, setInputValue4] = useState<string>("");
+	const [photoUrl, setPhotoUrl] = useState<string>("");
 	console.log(FaveriProduc);
 	const [editProducts] = useEditProductsMutation();
 
-	const editPtoduc = async (id: number) => {
-		console.log(id);
-		
-		const newProducts = {
-			productName: productName,
-			price: inputValue2,
-			quantity: inputValue3,
-			photoUrl: inputValue4,
-		};
-		console.log(newProducts);
-		
-		await editProducts(id,);
+	const editPtoduc = async (_id: number) => {
+		// console.log(id);
+		const newProduc = {
+			productName,
+			price,
+			quantity,
+			photoUrl,
+			_id,
+		}
+
+		await editProducts(newProduc);
 		setItemIdForms(false);
 	};
 
 	const [postProducFavorite] = usePostProducFavoriteMutation();
+	const [itemIdFavorite, setItemIdFavorite] = useState<any>(null)
 	const [itemIdForms, setItemIdForms] = useState<number | false>(false);
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+
 	const [postProducts] = usePostProductsMutation();
 	const { data: producData = [] } = useGetProductsQuery();
 	const handlePostProducts = async (values: any) => {
@@ -51,6 +53,10 @@ const FaveriProductsPages = () => {
 		await postProducts({ productName, price, quantity, photoUrl });
 		setIsOpenModal(false);
 	};
+	const handleOpenModal = (id: number) => {
+		setOpenModal(true);
+		setItemIdFavorite(id)
+	}
 	const handleInputItemId = (id: number) => {
 		setItemIdForms(id);
 	};
@@ -82,23 +88,23 @@ const FaveriProductsPages = () => {
 										<>
 											<input
 												type="text"
-												value={inputValue1}
-												onChange={(e) => setInputValue1(e.target.value)}
+												value={productName}
+												onChange={(e) => setProductName(e.target.value)}
 											/>
 											<input
 												type="text"
-												value={inputValue2}
-												onChange={(e) => setInputValue2(e.target.value)}
+												value={price}
+												onChange={(e) => setPrice(e.target.value)}
 											/>
 											<input
 												type="text"
-												value={inputValue3}
-												onChange={(e) => setInputValue3(e.target.value)}
+												value={quantity}
+												onChange={(e) => setQuantity(e.target.value)}
 											/>
 											<input
 												type="url"
-												value={inputValue4}
-												onChange={(e) => setInputValue4(e.target.value)}
+												value={photoUrl}
+												onChange={(e) => setPhotoUrl(e.target.value)}
 											/>
 											{/* <button onClick={() => }>Save</button> */}
 											<button onClick={() => setItemIdForms(false)}>
@@ -117,7 +123,7 @@ const FaveriProductsPages = () => {
 											/>
 											<h2>{item.product.productName}</h2>
 											<button
-												onClick={() => postProducFavorite(item.product._id)}>
+												onClick={() => handleOpenModal(item.product._id)}>
 												delete
 											</button>
 											<button
@@ -234,6 +240,15 @@ const FaveriProductsPages = () => {
 						</div>
 					</Modal>,
 					document.getElementById("modal") as any
+				)}
+				{openModal && createPortal(
+					<>
+					<Modal>
+						<button onClick={() => setOpenModal(false)}>Noo</button>
+						<button onClick={() => postProducFavorite(itemIdFavorite)}>delete</button>
+					</Modal>
+					</>,
+					document.getElementById('modal') as any
 				)}
 		</>
 	);

@@ -38,7 +38,7 @@ const Layout = () => {
 			<main>
 				<Routes>
 					<Route path="/home" element={<Home />} />
-					<Route path="/home/:productId" element={<ProductId />} />
+					<Route path="/home/product/:id" element={<ProductId />} />
 					<Route
 						path="/favorites-products"
 						element={<FaveriProductsResult />}

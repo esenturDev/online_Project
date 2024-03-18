@@ -20,9 +20,20 @@ namespace Products {
 		__v: string;
 	}[];
 	type PostProductsRequest = {
+		// _id: number;
 		productName: string;
 		price: string;
 		quantity: string;
 		photoUrl: string;
+	};
+
+	type GetProducRequest = string;
+	type GetProducResponse = {
+		_id: string | number;
+		productName: string;
+		price: string;
+		quantity: string;
+		photoUrl: string;
+		__v: string;
 	};
 }
