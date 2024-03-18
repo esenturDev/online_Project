@@ -116,3 +116,88 @@ header {
 		}
 	}
 }
+
+.basketProducContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding-block: 2rem;
+	padding-inline: 3rem;
+	border-radius: 7px;
+	.PTagtext {
+		color: rgb(18, 19, 20);
+		font-weight: 400;
+		font-size: 1.2rem;
+	}
+	.BasketProductsCards {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-block: 8px;
+		padding-inline: 1.8rem;
+		border-radius: 12px;
+		.contentsProducts {
+			display: flex;
+			flex-direction: column;
+			gap: 0.8rem;
+			.producTexts {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				p {
+					color: rgb(18, 19, 20);
+					font-weight: 400;
+					font-size: 1rem;
+				}
+			}
+			.buttonsIsProducts {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				button {
+					padding-block: 1rem;
+					padding-inline: 1rem;
+					color: black;
+				}
+				span {
+					padding-block: 0.4rem;
+					padding-inline: 1rem;
+					color: #000000;
+					font-weight: 400;
+					font-size: 1rem;
+				}
+			}
+			.buttonAddProduc {
+				padding-block: 0.8rem;
+				padding-inline: 1.1rem;
+				border-radius: 8px;
+				background-color: #ffffff;
+				border: 2px solid rgb(193, 28, 193);
+				color: rgb(193, 28, 193);
+				font-weight: 500;
+				font-size: 1.1rem;
+				&:hover {
+					transition: all 0.3s ease;
+					background-color: rgb(193, 28, 193);
+					color: #ffffff;
+					border: none;
+				}
+			}
+		}
+	}
+	.divProductsPrice {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		h3 {
+			color: rgb(18, 19, 20);
+			font-weight: 700;
+			font-size: 1rem;
+		}
+		p {
+			color: rgb(18, 19, 20);
+			font-weight: 450;
+			font-size: 14px;
+		}
+	}
+}

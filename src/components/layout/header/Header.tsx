@@ -228,21 +228,21 @@ export const Header: FC<{
 					<Modal>
 						{basketProducts.map((item: any) => (
 							<div className={scss.basketProducContainer} key={item._id}>
-								<p>Корзина</p>
-								<div>
+								<p className={scss.PTagtext}>Корзина</p>
+								<div className={scss.BasketProductsCards}>
 									<img
 										style={{ width: "100px", height: "auto" }}
 										src={item.product.photoUrl}
 										alt={item.product.productName}
 									/>
-									<div>
-										<div>
-											<p style={{ color: "black" }}>
+									<div className={scss.contentsProducts}>
+										<div className={scss.producTexts}>
+											<p>
 												{item.product.productName}
 											</p>
-											<p style={{ color: "black" }}>{item.product.price} $</p>
+											<p>{item.product.price} $</p>
 										</div>
-										<div>
+										<div className={scss.buttonsIsProducts}>
 											<button>-</button>
 											<span>{item.product.quantity}</span>
 											<button
@@ -250,12 +250,12 @@ export const Header: FC<{
 												+
 											</button>
 										</div>
-										<button>Купить</button>
+										<button className={scss.buttonAddProduc}>Купить</button>
 									</div>
 								</div>
-								<div>
+								<div className={scss.divProductsPrice}>
 									<h3>Итого:</h3>
-									<p>{item.product.price}</p>
+									<p>{item.product.price} $</p>
 								</div>
 							</div>
 						))}

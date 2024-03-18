@@ -25,7 +25,6 @@ export const Section5 = () => {
 							alt="logo"
 						/>
 					</div>
-					<p style={{ color: "black" }}>Section5</p>
 				</div>
 			</div>
 		</div>
