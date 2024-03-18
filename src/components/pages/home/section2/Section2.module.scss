@@ -1,5 +1,66 @@
 .section2 {
-  .content {
-    
-  }
+	.content {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		padding-block: 2.5rem;
+		padding-inline: 2.1rem;
+		.divCards {
+			display: flex;
+			flex-direction: column;
+			padding-block: 1.2rem;
+			padding-inline: 2rem;
+			gap: 1.2rem;
+			width: 20rem;
+			align-items: center;
+			background-color: rgb(243, 243, 241);
+			height: auto;
+			border-radius: 9px;
+			.link {
+				img {
+					width: 9.4rem;
+					height: 12rem;
+					border-radius: 8px;
+				}
+			}
+			h2 {
+				color: black;
+				font-weight: 500;
+				font-size: 1.2rem;
+			}
+			p {
+				color: #443d3d;
+				font-weight: 450;
+				font-size: 1rem;
+			}
+			.buttonsDiv {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				button {
+					font-size: 12px;
+					font-weight: 400;
+					padding-block: 0.5rem;
+					padding-inline: 1rem;
+					border-radius: 8px;
+					border: 2px solid rgb(176, 29, 176);
+					background-color: aliceblue;
+					color: rgb(176, 29, 176);
+					cursor: pointer;
+					&:hover {
+						transition: all 0.3s ease;
+						background-color: rgb(176, 29, 176);
+						color: aliceblue;
+						border: none;
+					}
+				}
+				img {
+					width: 25px;
+					height: 25px;
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }

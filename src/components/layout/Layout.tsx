@@ -33,7 +33,13 @@ const Layout = () => {
 		);
 	}
 	return (
-		<div style={isStyleResult ? {backgroundColor: 'black'} : {backgroundColor: 'aliceblue', color: "#fff, !important" }}  className={scss.layout}>
+		<div
+			style={
+				isStyleResult
+					? { backgroundColor: "black" }
+					: { backgroundColor: "aliceblue", color: "#fff, !important" }
+			}
+			className={scss.layout}>
 			<Header setIsStyleResult={setIsStyleResult} />
 			<main>
 				<Routes>
