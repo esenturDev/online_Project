@@ -29,20 +29,19 @@ export const Header: FC<{
 	setIsStyleResult: (value: boolean) => void;
 }> = ({ setIsStyleResult }) => {
 	// const [patchBasket] =  usePatchBasketMutation();
+	const [totalPrice, setTotalPrice] = useState();
 	const [putPlues] = usePutPluesMutation();
 	const [isPlues, setIsPlues] = useState();
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
 	const [patchBasketMinues] =  usePatchBasketMinuesMutation();
 	console.log(basketProducts);
-
 	const handleProducMinues = async (id: number) => {
 		const newProduct = {
 			quantityToDecrease: +1,
 		};
 		await patchBasketMinues({newProduct, id})
 	}
-
 	// interface QuantityResult {
 	// 	quantityToDecrease: number | string
 	// }
@@ -147,7 +146,7 @@ export const Header: FC<{
 	};
 	return (
 		<>
-			<ToastContainer />
+			{/* <ToastContainer /> */}
 			<header>
 				<div className="container">
 					<div className={scss.content}>

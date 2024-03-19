@@ -4,9 +4,26 @@ import { useGetItenIdProducQuery } from "../../../redux/api/product";
 import vidoeIsIphone from "../../../assets/vid/large_2x.mp4";
 import vidoeIsIphone2 from "../../../assets/vid/large_2x (1).mp4";
 import { useState } from "react";
-import { usePutPluesMutation } from "../../../redux/api/basket/Basket";
+import { usePatchBasketMinuesMutation, usePatchBasketMutation, usePutPluesMutation } from "../../../redux/api/basket/Basket";
 const ProducId = () => {
 	const [buyProduc] =  usePutPluesMutation();
+	const [patchBasketMinues] =  usePatchBasketMinuesMutation();
+	const [patchBasket] =  usePatchBasketMutation();
+
+	const handlePluesProduc = async (id: number) => {
+		const newProduc = {
+			quantityToDecrease: -1,
+		};
+		await patchBasket({ newProduc, id });
+	};
+	
+	const handleProducMinues = async (id: number) => {
+		const newProduct = {
+			quantityToDecrease: +1,
+		};
+		await patchBasketMinues({newProduct, id})
+	}
+
 
 	const handleProducBuy = async (id: number) => {
 		const newProduc = {
@@ -123,6 +140,8 @@ const ProducId = () => {
 										}>
 										512 gb
 									</button>
+									<button onClick={() => handlePluesProduc(data?._id)}>+</button>
+									<button onClick={() => handleProducMinues(data?._id)}>-</button>
 								</div>
 							</div>
 							<div className={scss.producPriceDiv}>
