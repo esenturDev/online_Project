@@ -48,4 +48,22 @@ namespace Products {
 		photoUrl: string;
 		__v: string;
 	};
+
+	type EditProducRequest = {
+		_id: number;
+		productName: string;
+		price: string;
+		quantity: string;
+		photoUrl: string;
+	};
+	type EditProducResponse = {
+		_id: number;
+		productName: string;
+		price: string;
+		quantity: string;
+		photoUrl: string;
+		isFavorite: boolean;
+		isInBasket: boolean;
+		__v: string;
+	}
 }

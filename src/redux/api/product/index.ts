@@ -51,6 +51,17 @@ const api = index.injectEndpoints({
 			}),
 			providesTags: ["products"],
 		}),
+		editProduc: build.mutation<
+			Products.EditProducResponse,
+			Products.EditProducRequest
+		>({
+			query: ({ _id, productName, price, quantity, photoUrl }) => ({
+				url: `products/${_id}`,
+				method: "PUT",
+				body: { productName, price, quantity, photoUrl },
+			}),
+			invalidatesTags: ["products"],
+		}),
 	}),
 });
 
@@ -60,4 +71,5 @@ export const {
 	useDeleteProductsMutation,
 	useEditProductsMutation,
 	useGetItenIdProducQuery,
+	useEditProducMutation,
 } = api;

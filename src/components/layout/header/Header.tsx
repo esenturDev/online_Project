@@ -29,9 +29,9 @@ export const Header: FC<{
 	setIsStyleResult: (value: boolean) => void;
 }> = ({ setIsStyleResult }) => {
 	// const [patchBasket] =  usePatchBasketMutation();
-	const [totalPrice, setTotalPrice] = useState();
+	const [totalPrice, setTotalPrice] = useState(0);
 	const [putPlues] = usePutPluesMutation();
-	const [isPlues, setIsPlues] = useState("");
+	// const [isPlues, setIsPlues] = useState("");
 	// const [isMinues, setIsMinues] = useState();
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
@@ -54,18 +54,21 @@ export const Header: FC<{
 		await patchBasket({ newProduc, id });
 	};
 
-	const handlePluesPrice = (price: string) => {
-		setIsPlues(price + price)
+	// const handlePluesPrice = (price: string) => {
+	// 	setIsPlues(price + price)
 
-	}
+	// }
 
-	function handleMinuesPrice(price: string)  {
-		setIsPlues(price - price)
-	}
+	// function handleMinuesPrice(price: string)  {
+	// 	setIsPlues(price - price)
+	// }
 
 	useEffect(() => {
-		handlePluesPrice()
-		handleMinuesPrice()
+		let totalPriceResult = 0;
+		basketProducts.forEach((el) => {
+			totalPriceResult += +el.product.price;
+			return setTotalPrice(totalPriceResult);
+		});
 	}, [handleProducMinues, handlePluesProduc]);
 
 	const pluesProduc = async (id: number) => {
@@ -335,7 +338,7 @@ export const Header: FC<{
 												<button
 													onClick={() => {
 														handleProducMinues(item.product._id);
-														handleMinuesPrice(item.product.price);
+														// handleMinuesPrice(item.product.price);
 													}}>
 													-
 												</button>
@@ -346,7 +349,7 @@ export const Header: FC<{
 															item.product._id
 															// item.product.quantity
 														);
-														handlePluesPrice(item.product.price);
+														// handlePluesPrice(item.product.price);
 													}}>
 													+
 												</button>
@@ -365,12 +368,12 @@ export const Header: FC<{
 										</div>
 									</div>
 									<div className={scss.divProductsPrice}>
-										<h3>Итого:</h3>
-										<h1 style={{color: 'black'}}>Result Price {isPlues}</h1>
+										{/* <h3>Итого: {totalPrice}</h3> */}
 										<p>{item.product.price} $</p>
 									</div>
 								</div>
 							))}
+								<h3 style={{color: 'black'}}>Итого: {totalPrice}</h3>
 							<button onClick={() => setIsOpenModalBasket(false)}>
 								Modal Noo
 							</button>
