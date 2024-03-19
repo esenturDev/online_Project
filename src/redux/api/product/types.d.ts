@@ -27,6 +27,18 @@ namespace Products {
 		photoUrl: string;
 	};
 
+	type PatchProducRequest = {
+		_id: number | string;
+		quantity: string | number;
+		// quantityToDecrease: string | number
+	};
+
+	type PatchProducResponse = {
+		_id: number | string;
+		quantity: string | number;
+		// quantityToDecrease: string | number;
+	}[]
+
 	type GetProducRequest = string;
 	type GetProducResponse = {
 		_id: string | number;

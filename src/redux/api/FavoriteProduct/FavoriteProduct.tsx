@@ -20,10 +20,10 @@ const api = index.injectEndpoints({
 		>({
 			query: () => ({
 				url: "favorites-products",
+				method: "GET",
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
 				},
-				method: "GET",
 			}),
 			providesTags: ["products"],
 		}),

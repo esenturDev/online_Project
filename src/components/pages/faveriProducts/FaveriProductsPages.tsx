@@ -18,13 +18,13 @@ import {
 } from "../../../redux/api/product";
 import { createPortal } from "react-dom";
 const FaveriProductsPages = () => {
-	const { data: FaveriProduc = [] } = useGetProducFavoriteQuery();
+	const { data: produc  = []} = useGetProducFavoriteQuery();
 	const [openModal, setOpenModal] = useState<boolean>(false);
 	const [productName, setProductName] = useState<string>("");
 	const [price, setPrice] = useState<string>("");
 	const [quantity, setQuantity] = useState<string>("");
 	const [photoUrl, setPhotoUrl] = useState<string>("");
-	console.log(FaveriProduc);
+	console.log(produc);
 	const [editProducts] = useEditProductsMutation();
 
 	const editPtoduc = async (_id: number) => {
@@ -60,6 +60,8 @@ const FaveriProductsPages = () => {
 		setItemIdFavorite(id);
 	};
 	const handleInputItemId = (id: number) => {
+		console.log(id);
+
 		setItemIdForms(id);
 	};
 	const buttonSubmitResult: ButtonProps = {
@@ -84,7 +86,7 @@ const FaveriProductsPages = () => {
 						<div>
 							<button onClick={() => setIsOpenModal(true)}>Add Produc</button>
 						</div>
-						{FaveriProduc?.map((item: any) => {
+						{produc?.map((item: any) => {
 							// const { productName, photoUrl } = item.product
 							return (
 								<div className={scss.cardIsProduc} key={item._id}>

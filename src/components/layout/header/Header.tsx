@@ -8,6 +8,7 @@ import logo2 from "../../../assets/photos/Button - Избранное (2).png";
 import { ProductsInputResult } from "../../../utils/ProductsValidetes";
 import Button, { ButtonProps } from "../../Ul/button/Button";
 import { Field, Form, Formik } from "formik";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import {
 	useGetProductsQuery,
 	usePostProductsMutation,
@@ -17,23 +18,45 @@ import { useNavigate } from "react-router";
 import {
 	useGetBasketQuery,
 	usePatchBasketMutation,
+	usePutPluesMutation,
 } from "../../../redux/api/basket/Basket";
+import { Modal2 } from "../../Ul/modal2/Modal2";
 
 // import CustomForm from "../../Ul/customForm/CustomForm";
 
 export const Header: FC<{
 	setIsStyleResult: (value: boolean) => void;
 }> = ({ setIsStyleResult }) => {
+	// const [patchBasket] =  usePatchBasketMutation();
+	const [putPlues] = usePutPluesMutation();
+	const [isPlues, setIsPlues] = useState();
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
 	console.log(basketProducts);
 
-	const basketPluseProducts = async (id: number) => {
-		await patchBasket(id);
+	// interface QuantityResult {
+	// 	quantityToDecrease: number | string
+	// }
+
+	const pluesProduc = async (id: number) => {
+		console.log(id);
+
+		const newProduc = {
+			quantityToDecrease: 1,
+		};
+		// setIsPlues(quantity + 1)
+		await putPlues({ newProduc, id });
 	};
+
+	// const basketPluseProducts = async (id: number, quantity: string | number) => {
+	// 	console.log(quantity);
+
+	// 	await patchBasket(id, quantity);
+	// };
 
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 	const [isOpenModalBasket, setIsOpenModalBasket] = useState<boolean>(false);
+
 	const [count, setCount] = useState<number>(0);
 	const navigate = useNavigate();
 	// const { data } = useGetProducFavoriteQuery();
@@ -43,7 +66,36 @@ export const Header: FC<{
 		const { productName, price, quantity, photoUrl } = values;
 		console.log("text");
 
-		await postProducts({ productName, price, quantity, photoUrl });
+		await postProducts({
+			productName,
+			price,
+			quantity,
+			photoUrl,
+		});
+		// if (result) {
+		// 	toast.success("🦄 Wow so easy!", {
+		// 		position: "top-center",
+		// 		autoClose: 3000,
+		// 		hideProgressBar: false,
+		// 		closeOnClick: true,
+		// 		pauseOnHover: true,
+		// 		draggable: true,
+		// 		progress: undefined,
+		// 		theme: "dark",
+		// 		transition: Bounce,
+		// 	});
+		// }
+		toast.success("🦄 Wow so easy!", {
+			position: "top-center",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "dark",
+			transition: Bounce,
+		});
 		setIsOpenModal(false);
 	};
 	function result() {
@@ -79,6 +131,7 @@ export const Header: FC<{
 	};
 	return (
 		<>
+			<ToastContainer />
 			<header>
 				<div className="container">
 					<div className={scss.content}>
@@ -225,41 +278,60 @@ export const Header: FC<{
 				)}
 			{isOpenModalBasket &&
 				createPortal(
-					<Modal>
-						{basketProducts.map((item: any) => (
-							<div className={scss.basketProducContainer} key={item._id}>
-								<p className={scss.PTagtext}>Корзина</p>
-								<div className={scss.BasketProductsCards}>
-									<img
-										style={{ width: "100px", height: "auto" }}
-										src={item.product.photoUrl}
-										alt={item.product.productName}
-									/>
-									<div className={scss.contentsProducts}>
-										<div className={scss.producTexts}>
-											<p>
-												{item.product.productName}
-											</p>
-											<p>{item.product.price} $</p>
-										</div>
-										<div className={scss.buttonsIsProducts}>
-											<button>-</button>
-											<span>{item.product.quantity}</span>
+					<Modal2>
+						<>
+							<p
+								style={{
+									color: " rgb(18, 19, 20)",
+									fontWeight: "400",
+									fontSize: "1.2rem",
+								}}>
+								Корзина
+							</p>
+							{basketProducts.map((item: any) => (
+								<div className={scss.basketProducContainer} key={item._id}>
+									<div className={scss.BasketProductsCards}>
+										<img
+											style={{ width: "100px", height: "auto" }}
+											src={item.product.photoUrl}
+											alt={item.product.productName}
+										/>
+										<div className={scss.contentsProducts}>
+											<div className={scss.producTexts}>
+												<p>{item.product.productName}</p>
+												<p>{item.product.price} $</p>
+											</div>
+											<div className={scss.buttonsIsProducts}>
+												<button>-</button>
+												<span>{item.product.quantity}</span>
+												<button>
+													+
+												</button>
+											</div>
 											<button
-												onClick={() => basketPluseProducts(item.product._id)}>
-												+
+												className={scss.buttonAddProduc}
+												onClick={() =>
+													// basketPluseProducts(
+													// 	item.product._id,
+													// 	item.product.quantity
+													// )
+													pluesProduc(item.product._id)
+												}>
+												Купить
 											</button>
 										</div>
-										<button className={scss.buttonAddProduc}>Купить</button>
+									</div>
+									<div className={scss.divProductsPrice}>
+										<h3>Итого:</h3>
+										<p>{item.product.price} $</p>
 									</div>
 								</div>
-								<div className={scss.divProductsPrice}>
-									<h3>Итого:</h3>
-									<p>{item.product.price} $</p>
-								</div>
-							</div>
-						))}
-					</Modal>,
+							))}
+							<button onClick={() => setIsOpenModalBasket(false)}>
+								Modal Noo
+							</button>
+						</>
+					</Modal2>,
 					document.getElementById("modal") as any
 				)}
 		</>

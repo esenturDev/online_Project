@@ -18,6 +18,12 @@
 			height: auto;
 			border-radius: 9px;
 			margin-bottom: 1.7rem;
+			&:hover {
+				transition: all 0.4s ease;
+				width: 17.2rem;
+				height: auto;
+				box-shadow: 0px 0px 6px rgb(22, 21, 21);
+			}
 			.link {
 				img {
 					width: 9.4rem;

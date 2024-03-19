@@ -2,9 +2,18 @@ import { useNavigate, useParams } from "react-router";
 import scss from "./ProducId.module.scss";
 import { useGetItenIdProducQuery } from "../../../redux/api/product";
 import vidoeIsIphone from "../../../assets/vid/large_2x.mp4";
-import vidoeIsIphone2 from '../../../assets/vid/large_2x (1).mp4';
+import vidoeIsIphone2 from "../../../assets/vid/large_2x (1).mp4";
 import { useState } from "react";
+import { usePutPluesMutation } from "../../../redux/api/basket/Basket";
 const ProducId = () => {
+	const [buyProduc] =  usePutPluesMutation();
+
+	const handleProducBuy = async (id: number) => {
+		const newProduc = {
+			quantityToDecrease: 1
+		}
+		await buyProduc({newProduc, id})
+	}
 	const [isPhotoProducResultColor1, setIsPhotoProducResultColor1] =
 		useState(true);
 	const [isPhotoProducResultColor2, setIsPhotoProducResultColor2] =
@@ -118,9 +127,9 @@ const ProducId = () => {
 							</div>
 							<div className={scss.producPriceDiv}>
 								<p>{data?.price} $</p>
-								<p>{data?.quantity}</p>
+								<p>{data?.quantity} шт</p>
 								<div className={scss.buttonDiv}>
-									<button className={scss.buttonisAddProduc}>Купить</button>
+									<button className={scss.buttonisAddProduc} onClick={() => handleProducBuy(data?._id)}>Купить</button>
 									<button>Оформить в кредит</button>
 									<button>Забронировать</button>
 								</div>
@@ -148,25 +157,25 @@ const ProducId = () => {
 							</div>
 							<div className={scss.productsDiv}>
 								<p>
-									Получите скидку при покупке <br /> iPhone 14 Pro или 14 Pro
-									Max,
+									Воспользуйтесь нашей <br /> накопительной картой. <br />{" "}
+									Кэшбэк с каждой покупки.
 									<br /> воспользовавшись услугой Trade-In.
 								</p>
 								<a href="#">Подробнее</a>
-								<img
-									src="https://www.istore.kg/media/documents/2023-08-28/trade_in__fh1d4l94tiye_large_2x.jpg"
+								<img className={scss.img}
+									src="https://www.istore.kg/media/documents/2023-08-28/istore.svg"
 									alt="logo"
 								/>
 							</div>
 							<div className={scss.productsDiv}>
 								<p>
-									Получите скидку при покупке <br /> iPhone 14 Pro или 14 Pro
-									Max,
+									Оформите в рассрочку. <br /> Выгодные условия в <br /> Банках «MBANK» и <br />
+									«DemirBank»
 									<br /> воспользовавшись услугой Trade-In.
 								</p>
 								<a href="#">Подробнее</a>
 								<img
-									src="https://www.istore.kg/media/documents/2023-08-28/trade_in__fh1d4l94tiye_large_2x.jpg"
+									src="https://www.istore.kg/media/documents/2023-08-28/visa-cards_xkme4G1.webp"
 									alt="logo"
 								/>
 							</div>
