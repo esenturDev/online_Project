@@ -17,6 +17,7 @@ import {
 import { useNavigate } from "react-router";
 import {
 	useGetBasketQuery,
+	usePatchBasketMinuesMutation,
 	usePatchBasketMutation,
 	usePutPluesMutation,
 } from "../../../redux/api/basket/Basket";
@@ -32,11 +33,26 @@ export const Header: FC<{
 	const [isPlues, setIsPlues] = useState();
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
+	const [patchBasketMinues] =  usePatchBasketMinuesMutation();
 	console.log(basketProducts);
+
+	const handleProducMinues = async (id: number) => {
+		const newProduct = {
+			quantityToDecrease: +1,
+		};
+		await patchBasketMinues({newProduct, id})
+	}
 
 	// interface QuantityResult {
 	// 	quantityToDecrease: number | string
 	// }
+
+	const handlePluesProduc = async (id: number) => {
+		const newProduc = {
+			quantityToDecrease: -1,
+		};
+		await patchBasket({ newProduc, id });
+	};
 
 	const pluesProduc = async (id: number) => {
 		console.log(id);
@@ -302,9 +318,15 @@ export const Header: FC<{
 												<p>{item.product.price} $</p>
 											</div>
 											<div className={scss.buttonsIsProducts}>
-												<button>-</button>
+												<button onClick={() => handleProducMinues(item.product._id)}>-</button>
 												<span>{item.product.quantity}</span>
-												<button>
+												<button
+													onClick={() =>
+														handlePluesProduc(
+															item.product._id
+															// item.product.quantity
+														)
+													}>
 													+
 												</button>
 											</div>

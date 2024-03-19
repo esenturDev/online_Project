@@ -28,20 +28,25 @@ const api = index.injectEndpoints({
 			}),
 			invalidatesTags: ["products"],
 		}),
-		patchBasket: build.mutation<
-			Products.PatchProducResponse,
-			Products.PatchProducRequest
-		>({
-			query: (_id, quantity) => ({
-				url: `/product-buy/${_id}`,
+		patchBasket: build.mutation({
+			query: ({id, newProduc}) => ({
+				url: `/product-buy/${id}`,
 				method: "PATCH",
-				body: quantity,
+				body: newProduc,
 				// headers: {
 				// 	Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,
 				// },
 				// body: quantity
 			}),
 			invalidatesTags: ["products"],
+		}),
+		patchBasketMinues: build.mutation({
+			query: ({newProduct, id}) => ({
+				url: `/product-buy/${id}`,
+				method: "PATCH",
+				body: newProduct
+			}),
+			invalidatesTags: ['products'],
 		}),
 		putPlues: build.mutation({
 			query: ({ newProduc, id}) => ({
@@ -59,4 +64,5 @@ export const {
 	usePostBasketMutation,
 	usePatchBasketMutation,
 	usePutPluesMutation,
+	usePatchBasketMinuesMutation,
 } = api;
