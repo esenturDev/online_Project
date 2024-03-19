@@ -26,34 +26,34 @@
 				align-items: center;
 				gap: 12px;
 				padding-bottom: 1rem;
-        .inputs {
-          width: 240px;
-          height: 29px;
-          border-radius: 3px;
-          border: none;
-          box-shadow: 0px 0px 2px black;
-          &:hover {
-            border: 2px solid #a3a3fd93;
-            background-color: #a3a3fd52;
-            /* outline: blue; */
-          }
-          /* &:active {
+				.inputs {
+					width: 240px;
+					height: 29px;
+					border-radius: 3px;
+					border: none;
+					box-shadow: 0px 0px 2px black;
+					&:hover {
+						border: 2px solid #a3a3fd93;
+						background-color: #a3a3fd52;
+						/* outline: blue; */
+					}
+					/* &:active {
             border: none;
           } */
-          padding-left: 15px;
-          color: #403b3b;
-          font-size: 12px;
-        }
-        .buttonRegister {
-          cursor: pointer;
-          width: 258px;
-          height: 31px;
-          border-radius: 3px;
-          background-color: blue;
-          color: #fff;
-          font-size: 14px;
-          border: none;
-        }
+					padding-left: 15px;
+					color: #403b3b;
+					font-size: 12px;
+				}
+				.buttonRegister {
+					cursor: pointer;
+					width: 258px;
+					height: 31px;
+					border-radius: 3px;
+					background-color: blue;
+					color: #fff;
+					font-size: 14px;
+					border: none;
+				}
 				.buttonicon {
 					cursor: pointer;
 					width: 258px;
