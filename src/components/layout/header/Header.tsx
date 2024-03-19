@@ -31,17 +31,18 @@ export const Header: FC<{
 	// const [patchBasket] =  usePatchBasketMutation();
 	const [totalPrice, setTotalPrice] = useState();
 	const [putPlues] = usePutPluesMutation();
-	const [isPlues, setIsPlues] = useState();
+	const [isPlues, setIsPlues] = useState("");
+	// const [isMinues, setIsMinues] = useState();
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
-	const [patchBasketMinues] =  usePatchBasketMinuesMutation();
+	const [patchBasketMinues] = usePatchBasketMinuesMutation();
 	console.log(basketProducts);
 	const handleProducMinues = async (id: number) => {
 		const newProduct = {
 			quantityToDecrease: +1,
 		};
-		await patchBasketMinues({newProduct, id})
-	}
+		await patchBasketMinues({ newProduct, id });
+	};
 	// interface QuantityResult {
 	// 	quantityToDecrease: number | string
 	// }
@@ -52,6 +53,20 @@ export const Header: FC<{
 		};
 		await patchBasket({ newProduc, id });
 	};
+
+	const handlePluesPrice = (price: string) => {
+		setIsPlues(price + price)
+
+	}
+
+	function handleMinuesPrice(price: string)  {
+		setIsPlues(price - price)
+	}
+
+	useEffect(() => {
+		handlePluesPrice()
+		handleMinuesPrice()
+	}, [handleProducMinues, handlePluesProduc]);
 
 	const pluesProduc = async (id: number) => {
 		console.log(id);
@@ -146,7 +161,7 @@ export const Header: FC<{
 	};
 	return (
 		<>
-			{/* <ToastContainer /> */}
+			<ToastContainer />
 			<header>
 				<div className="container">
 					<div className={scss.content}>
@@ -317,15 +332,22 @@ export const Header: FC<{
 												<p>{item.product.price} $</p>
 											</div>
 											<div className={scss.buttonsIsProducts}>
-												<button onClick={() => handleProducMinues(item.product._id)}>-</button>
+												<button
+													onClick={() => {
+														handleProducMinues(item.product._id);
+														handleMinuesPrice(item.product.price);
+													}}>
+													-
+												</button>
 												<span>{item.product.quantity}</span>
 												<button
-													onClick={() =>
+													onClick={() => {
 														handlePluesProduc(
 															item.product._id
 															// item.product.quantity
-														)
-													}>
+														);
+														handlePluesPrice(item.product.price);
+													}}>
 													+
 												</button>
 											</div>
@@ -344,6 +366,7 @@ export const Header: FC<{
 									</div>
 									<div className={scss.divProductsPrice}>
 										<h3>Итого:</h3>
+										<h1 style={{color: 'black'}}>Result Price {isPlues}</h1>
 										<p>{item.product.price} $</p>
 									</div>
 								</div>
