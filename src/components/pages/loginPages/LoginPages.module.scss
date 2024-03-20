@@ -20,12 +20,17 @@
 				align-items: center;
 			}
 			.inputAndButtons {
+				// display: flex;
+				// flex-direction: column;
+				// justify-content: space-between;
+				// align-items: center;
+				// gap: 12px;
+				// padding-bottom: 1rem;
 				display: flex;
+				justify-content: center;
+				gap: 0.1rem;
 				flex-direction: column;
-				justify-content: space-between;
 				align-items: center;
-				gap: 12px;
-				padding-bottom: 1rem;
 				.inputs {
 					width: 240px;
 					height: 29px;

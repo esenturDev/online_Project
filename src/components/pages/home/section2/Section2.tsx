@@ -8,10 +8,18 @@ import {
 	useGetProductsQuery,
 } from "../../../../redux/api/product";
 import scss from "./Section2.module.scss";
+import iconNooActiveHeart from "../../../../assets/photos/Vector (9).png";
+import iconActiveHeart from "../../../../assets/photos/Vector (9).png";
 import { useState } from "react";
 import { Input } from "../../../Ul/input/Input";
+import heartIcon from "../../../../assets/heart-3-line (1).svg";
 export const Section2 = () => {
 	const { data } = useGetProductsQuery();
+	const [isheartIconStyle, setIsheartIconStyle] = useState<boolean | number>(
+		false
+	);
+	const [style, setStyle] = useState<boolean>(true);
+	const [styleNoo, setStyleNoo] = useState<string>("");
 	const [editProducts] = useEditProducMutation();
 	const [itemIdProducEdit, setItemIdProducEdit] = useState<number | boolean>(
 		false
@@ -35,6 +43,20 @@ export const Section2 = () => {
 
 	const handleEditProduc = (id: number) => {
 		setItemIdProducEdit(id);
+	};
+
+	// useEffect(() => {
+	// 	const isheartIconStyleResult = data?.find((el) => el.isFavorite === true);
+	// 	if (isheartIconStyleResult) {
+	// 		setIsheartIconStyle(true);
+	// 	} else {
+	// 		setIsheartIconStyle(false);
+	// 	}
+	// }, [postProducFavorite]);
+
+	const foverite = (id: number) => {
+		setIsheartIconStyle(id);
+		// setStyle(true);
 	};
 
 	return (
@@ -72,9 +94,31 @@ export const Section2 = () => {
 										<button onClick={() => handleDeleteProducts(item._id)}>
 											delete
 										</button>
-										<button onClick={() => postProducFavorite(item._id)}>
-											add Favorite
-										</button>
+										{isheartIconStyle === item._id &&
+										item.isFavorite === true ? (
+											<img
+												onClick={() => {
+													postProducFavorite(item._id);
+													foverite(item._id);
+													// setStyle(true);
+												}}
+												src={iconNooActiveHeart}
+												alt="logo"
+											/>
+										) : (
+											<img
+												src={iconActiveHeart}
+												alt="logo"
+												onClick={() => {
+													postProducFavorite(item._id);
+													// setStyle(false);
+													setIsheartIconStyle(false);
+												}}
+											/>
+										)}
+										{/* <button onClick={() => postProducFavorite(item._id)}>
+											
+										</button> */}
 										<>
 											<img
 												onClick={() => handleEditProduc(item._id)}

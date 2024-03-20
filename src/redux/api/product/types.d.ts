@@ -7,6 +7,7 @@ namespace Products {
 		photoUrl: string;
 		price: string;
 		quantity: string;
+		isFavorite: boolean;
 	}[];
 
 	type PostProductsResponse = {

@@ -45,6 +45,12 @@
 				display: flex;
 				align-items: center;
 				gap: 1rem;
+				.activeStyle {
+					background-color: red;
+				}
+				.nooActive {
+					background-color: transparent;
+				}
 				button {
 					font-size: 12px;
 					font-weight: 400;
