@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import { Resistr } from "../pages/Resistr";
 import Home from "../pages/Home";
 import { FaveriProductsResult } from "../pages/FaveriProductsResult";
+import { BasketPages } from "../pages/BasketPages";
 const Layout = () => {
 	const { pathname } = useLocation();
 	const [isStyleResult, setIsStyleResult] = useState(false);
@@ -49,6 +50,7 @@ const Layout = () => {
 						path="/favorites-products"
 						element={<FaveriProductsResult />}
 					/>
+					<Route path="/basket" element={<BasketPages />} />
 					<Route path="*" element={<Error />} />
 				</Routes>
 			</main>

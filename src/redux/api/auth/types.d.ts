@@ -26,6 +26,6 @@ namespace AUTH {
   type GetUsersResponse = {
     _id: number;
     email: string;
-    // userName: string
-  }
+    userName: string
+  }[];
 }

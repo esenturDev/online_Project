@@ -21,7 +21,7 @@ namespace Products {
 		__v: string;
 	}[];
 	type PostProductsRequest = {
-		// _id: number;
+		// _id: number | string;
 		productName: string;
 		price: string;
 		quantity: string;

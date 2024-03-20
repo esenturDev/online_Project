@@ -32,11 +32,14 @@ export const Header: FC<{
 	const { data: usersProfile = [] } = useGetUsersQuery();
 	console.log(usersProfile);
 
+	// const findUsers = usersProfile.find((el) => el._id === 1);
+
 	// const [patchBasket] =  usePatchBasketMutation();
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [putPlues] = usePutPluesMutation();
 	// const [isPlues, setIsPlues] = useState("");
 	// const [isMinues, setIsMinues] = useState();
+	const [userProfile, setUserProfile] = useState<boolean>(false);
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
 	const [patchBasketMinues] = usePatchBasketMinuesMutation();
@@ -188,9 +191,6 @@ export const Header: FC<{
 							+996 (505) 802 000
 						</p>
 						<div className={scss.buttons}>
-							<button onClick={removeUsers}>
-								<img src={logo1} alt="logo1" />
-							</button>
 							<button onClick={() => navigate("/favorites-products")}>
 								<img src={logo2} alt="logo1" />
 								<p>{count}</p>
@@ -203,6 +203,12 @@ export const Header: FC<{
 								/>
 								<p className={scss.p}>Корзина</p>
 							</button>
+							<img
+								style={{ width: "40px", height: "40px" }}
+								onClick={() => navigate("/basket")}
+								src="https://www.istore.kg/static/img/union.svg"
+								alt="photo is basket"
+							/>
 							<button
 								onClick={() => setIsOpenModal(true)}
 								style={{ color: "blue" }}>
@@ -213,6 +219,26 @@ export const Header: FC<{
 								onClick={() => setIsStyleResult(true)}>
 								Режим черный
 							</button>
+							<>
+								<img
+									onClick={() => setUserProfile(!userProfile)}
+									src="https://w7.pngwing.com/pngs/247/564/png-transparent-computer-icons-user-profile-user-avatar-blue-heroes-electric-blue.png"
+									alt="logo user profile"
+								/>
+								{userProfile ? (
+									<div className={scss.containerDivFixet}>
+										<div className={scss.contentsDiv}>
+											<h2>Hello</h2>
+
+										</div>
+										<div className={scss.buttonsAndTexts}>
+											<button onClick={removeUsers}>
+												<img src={logo1} alt="logo" />
+											</button>
+										</div>
+									</div>
+								) : null}
+							</>
 						</div>
 					</div>
 				</div>

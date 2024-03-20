@@ -12,15 +12,15 @@ import iconNooActiveHeart from "../../../../assets/photos/Vector (9).png";
 import iconActiveHeart from "../../../../assets/photos/Vector (10).png";
 import { useState } from "react";
 import { Input } from "../../../Ul/input/Input";
-import heartIcon from "../../../../assets/heart-3-line (1).svg";
+// import heartIcon from "../../../../assets/heart-3-line (1).svg";
 import iconDelete from "../../../../assets/photos/Vector (8).png";
 export const Section2 = () => {
 	const { data } = useGetProductsQuery();
-	const [isheartIconStyle, setIsheartIconStyle] = useState<boolean | number>(
-		false
-	);
-	const [style, setStyle] = useState<boolean>(true);
-	const [styleNoo, setStyleNoo] = useState<string>("");
+	// const [isheartIconStyle, setIsheartIconStyle] = useState<boolean | number>(
+	// 	false
+	// );
+	// const [style, setStyle] = useState<boolean>(true);
+	// const [styleNoo, setStyleNoo] = useState<string>("");
 	const [editProducts] = useEditProducMutation();
 	const [itemIdProducEdit, setItemIdProducEdit] = useState<number | boolean>(
 		false
@@ -46,21 +46,9 @@ export const Section2 = () => {
 		setItemIdProducEdit(id);
 	};
 
-	// useEffect(() => {
-	// 	const isheartIconStyleResult = data?.find((el) => el.isFavorite === true);
-	// 	if (isheartIconStyleResult) {
-	// 		setIsheartIconStyle(true);
-	// 	} else {
-	// 		setIsheartIconStyle(false);
-	// 	}
-	// }, [postProducFavorite]);
-
-	const foverite = (id: number) => {
-		setIsheartIconStyle(id);
-		// localStorage.setItem('isPhotoStyle', JSON.stringify(Math.random()))
-		// setStyle(true);
-		// localStorage.removeItem("isPhotoStyle");
-	};
+	// const foverite = (id: number) => {
+	// 	setIsheartIconStyle(id);
+	// };
 
 	return (
 		<section className={scss.section2}>
@@ -99,33 +87,13 @@ export const Section2 = () => {
 											src={iconDelete}
 											alt="Icon Delete"
 										/>
-										{isheartIconStyle === item._id &&
-										item.isFavorite === true ? (
-											<img
-												onClick={() => {
-													postProducFavorite(item._id);
-													// foverite(item._id);
-													// setStyle(true);
-													setIsheartIconStyle(false);
-												}}
-												src={iconActiveHeart}
-												alt="logo"
-											/>
+										
+										{item.isFavorite === true ? (
+											<img onClick={() => postProducFavorite(item._id)} src={iconActiveHeart} alt="logo" />
 										) : (
-											<img
-												src={iconNooActiveHeart}
-												alt="logo"
-												onClick={() => {
-													postProducFavorite(item._id);
-													foverite(item._id);
-													// setStyle(false);
-													// setIsheartIconStyle(false);
-												}}
-											/>
+											<img onClick={() => postProducFavorite(item._id)} src={iconNooActiveHeart} alt="logo" />
 										)}
-										{/* <button onClick={() => postProducFavorite(item._id)}>
-											
-										</button> */}
+									
 										<>
 											<img
 												onClick={() => handleEditProduc(item._id)}

@@ -3,7 +3,7 @@ const api = index.injectEndpoints({
 	endpoints: (build) => ({
 		getUsers: build.query<AUTH.GetUsersResponse, AUTH.GetUsersRequest>({
 			query: () => ({
-				url: "/login",
+				url: "/users",
 				method: "GET",
 			}),
 			providesTags: ["auth"],
