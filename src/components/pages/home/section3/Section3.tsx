@@ -31,7 +31,7 @@ export const Section3 = () => {
 		slides: { perView: 1 },
 	});
 	return (
-		<div className={scss.section3}>
+		<section className={scss.section3}>
 			<div className="container">
 				<div className={scss.content}>
 					<div ref={sliderRef} className="keen-slider">
@@ -43,9 +43,8 @@ export const Section3 = () => {
 							</div>
 						))}
 					</div>
-					<p style={{ color: "black" }}>section3</p>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };

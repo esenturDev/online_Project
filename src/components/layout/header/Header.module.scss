@@ -124,6 +124,13 @@ header {
 	padding-block: 1rem;
 	padding-inline: 3rem;
 	border-radius: 7px;
+	// position: fixed;
+	// width: 100%;
+	// left: 0;
+	// // top: 0;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
 	// .PTagtext {
 	// 	color: rgb(18, 19, 20);
 	// 	font-weight: 400;
@@ -155,9 +162,20 @@ header {
 				justify-content: space-evenly;
 				align-items: center;
 				button {
-					padding-block: 1rem;
-					padding-inline: 1rem;
-					color: black;
+					color: rgb(193, 28, 193);
+					background-color: transparent;
+					border: 2px solid rgb(193, 28, 193);
+					padding-block: 14px;
+					padding-inline: 16px;
+					font-size: 18px;
+					font-weight: 700;
+					border-radius: 10px;
+					&:hover {
+						transition: all 0.2s ease;
+						background-color: rgb(193, 28, 193);
+						border: none;
+						color: #ffffff;
+					}
 				}
 				span {
 					padding-block: 0.4rem;
@@ -199,5 +217,19 @@ header {
 			font-weight: 450;
 			font-size: 14px;
 		}
+	}
+}
+
+.buttonModalNooBasket {
+	font-size: 0.9rem;
+	font-weight: 550;
+	border-radius: 9px;
+	color: #9b9f9d;
+	background-color: rgb(23, 22, 22);
+	padding-block: 0.8rem;
+	padding-inline: 1.2rem;
+	&:hover {
+		transition: all 0.2s ease;
+		background-color: rgb(46, 44, 44);
 	}
 }

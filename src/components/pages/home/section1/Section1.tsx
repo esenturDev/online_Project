@@ -40,7 +40,7 @@ export const Section1 = () => {
 		slides: { perView: 1 },
 	});
 	return (
-		<div className={scss.section1}>
+		<section className={scss.section1}>
 			<div ref={sliderRef} className="keen-slider">
 				{array.map((item, index) => (
 					<div
@@ -52,6 +52,6 @@ export const Section1 = () => {
 					</div>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };

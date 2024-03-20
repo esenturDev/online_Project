@@ -9,10 +9,11 @@ import {
 } from "../../../../redux/api/product";
 import scss from "./Section2.module.scss";
 import iconNooActiveHeart from "../../../../assets/photos/Vector (9).png";
-import iconActiveHeart from "../../../../assets/photos/Vector (9).png";
+import iconActiveHeart from "../../../../assets/photos/Vector (10).png";
 import { useState } from "react";
 import { Input } from "../../../Ul/input/Input";
 import heartIcon from "../../../../assets/heart-3-line (1).svg";
+import iconDelete from "../../../../assets/photos/Vector (8).png";
 export const Section2 = () => {
 	const { data } = useGetProductsQuery();
 	const [isheartIconStyle, setIsheartIconStyle] = useState<boolean | number>(
@@ -56,11 +57,13 @@ export const Section2 = () => {
 
 	const foverite = (id: number) => {
 		setIsheartIconStyle(id);
+		// localStorage.setItem('isPhotoStyle', JSON.stringify(Math.random()))
 		// setStyle(true);
+		// localStorage.removeItem("isPhotoStyle");
 	};
 
 	return (
-		<div className={scss.section2}>
+		<section className={scss.section2}>
 			<div className="container">
 				<div className={scss.content}>
 					{data?.map((item) => (
@@ -91,28 +94,32 @@ export const Section2 = () => {
 									<p>{item.price}</p>
 									<p>{item.quantity}</p>
 									<div className={scss.buttonsDiv}>
-										<button onClick={() => handleDeleteProducts(item._id)}>
-											delete
-										</button>
+										<img
+											onClick={() => handleDeleteProducts(item._id)}
+											src={iconDelete}
+											alt="Icon Delete"
+										/>
 										{isheartIconStyle === item._id &&
 										item.isFavorite === true ? (
 											<img
 												onClick={() => {
 													postProducFavorite(item._id);
-													foverite(item._id);
+													// foverite(item._id);
 													// setStyle(true);
+													setIsheartIconStyle(false);
 												}}
-												src={iconNooActiveHeart}
+												src={iconActiveHeart}
 												alt="logo"
 											/>
 										) : (
 											<img
-												src={iconActiveHeart}
+												src={iconNooActiveHeart}
 												alt="logo"
 												onClick={() => {
 													postProducFavorite(item._id);
+													foverite(item._id);
 													// setStyle(false);
-													setIsheartIconStyle(false);
+													// setIsheartIconStyle(false);
 												}}
 											/>
 										)}
@@ -138,6 +145,6 @@ export const Section2 = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };

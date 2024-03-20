@@ -3,7 +3,7 @@ import scss from "./Section4.module.scss";
 
 const Section4 = () => {
 	return (
-		<div className={scss.section4}>
+		<section className={scss.section4}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.producDiv}>
@@ -87,7 +87,7 @@ const Section4 = () => {
 					{/* <iframe src={vidoe} ></iframe> */}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

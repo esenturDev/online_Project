@@ -22,12 +22,16 @@ import {
 	usePutPluesMutation,
 } from "../../../redux/api/basket/Basket";
 import { Modal2 } from "../../Ul/modal2/Modal2";
+import { useGetUsersQuery } from "../../../redux/api/auth";
 
 // import CustomForm from "../../Ul/customForm/CustomForm";
 
 export const Header: FC<{
 	setIsStyleResult: (value: boolean) => void;
 }> = ({ setIsStyleResult }) => {
+	const { data: usersProfile = [] } = useGetUsersQuery();
+	console.log(usersProfile);
+
 	// const [patchBasket] =  usePatchBasketMutation();
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [putPlues] = usePutPluesMutation();
@@ -373,8 +377,18 @@ export const Header: FC<{
 									</div>
 								</div>
 							))}
-								<h3 style={{color: 'black'}}>Итого: {totalPrice}</h3>
-							<button onClick={() => setIsOpenModalBasket(false)}>
+							<h3
+								style={{
+									color: "black",
+									fontSize: "1.3rem",
+									fontWeight: "700",
+									marginBottom: "1rem",
+								}}>
+								Итого: {totalPrice}
+							</h3>
+							<button
+								className={scss.buttonModalNooBasket}
+								onClick={() => setIsOpenModalBasket(false)}>
 								Modal Noo
 							</button>
 						</>

@@ -2,7 +2,7 @@ import scss from "./Section5.module.scss";
 
 export const Section5 = () => {
 	return (
-		<div className={scss.section4}>
+		<section className={scss.section4}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.section4DivPhotos}>
@@ -27,6 +27,6 @@ export const Section5 = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };

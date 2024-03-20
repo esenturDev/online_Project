@@ -21,4 +21,11 @@ namespace AUTH {
     userName: string;
     __v: number;
   };
+
+  type GetUsersRequest = void;
+  type GetUsersResponse = {
+    _id: number;
+    email: string;
+    // userName: string
+  }
 }

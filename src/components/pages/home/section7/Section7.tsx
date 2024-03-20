@@ -2,7 +2,7 @@ import scss from "./Section7.module.scss";
 
 const Section7 = () => {
 	return (
-		<div className={scss.section7}>
+		<section className={scss.section7}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.section7DivContent1}>
@@ -66,7 +66,7 @@ const Section7 = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
