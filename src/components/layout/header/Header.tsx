@@ -215,7 +215,7 @@ export const Header: FC<{
 								style={{ color: "blue" }}>
 								Add Products
 							</button>
-						
+
 							<>
 								<img
 									style={{
@@ -240,37 +240,53 @@ export const Header: FC<{
 											/>
 											<p>user@gmail.com</p>
 										</div>
-										<p>Online istore.kg😍</p>
+										<p className={scss.p}>Online istore.kg😍</p>
 										<div className={scss.buttonsAndTexts}>
-											<p onClick={() => navigate("/profile")}>
+											<p onClick={() => {
+												navigate("/profile")
+												setUserProfile(false)
+											}}>
 												Профиль и доступ
+											</p>
+											<p onClick={() => {
+												navigate("/basket")
+												setUserProfile(false)
+											}}>Корзина</p>
+											<p onClick={() => {
+												navigate("/favorites-products")
+												setUserProfile(false)
+											}}>
+												Избранные
 											</p>
 											<p>Действия</p>
 											<p>Карточки</p>
-											<p onClick={() => navigate("/basket")}>Корзина</p>
-											<p onClick={() => navigate("/favorites-products")}>
-												Избранные
-											</p>
 											<p>Настройки</p>
 											{isLayoutStyle ? (
 												<>
-													<button 	onClick={() => {
-														setIsStyleResult(true)
-														setIsLayoutStyle(false)
-													}}>Режим dark</button>
-													<button onClick={() => {
-														setIsStyleResult(false)
-														setIsLayoutStyle(false)
-													}}>Режим white</button>
+													<button
+														onClick={() => {
+															setIsStyleResult(true);
+															setIsLayoutStyle(false);
+														}}>
+														Режим dark
+													</button>
+													<button
+														onClick={() => {
+															setIsStyleResult(false);
+															setIsLayoutStyle(false);
+														}}>
+														Режим white
+													</button>
 												</>
 											) : (
 												<>
-													<button onClick={() => setIsLayoutStyle(true)}>Выбор темы</button>
+													<button onClick={() => setIsLayoutStyle(true)}>
+														<p>Выбор темы</p>
+													</button>
 												</>
 											)}
-
 											<button onClick={removeUsers}>
-												<img src={logo1} alt="logo" />
+												<p>Войти</p>
 											</button>
 										</div>
 									</div>

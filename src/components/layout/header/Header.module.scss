@@ -47,17 +47,88 @@ header {
 				position: fixed;
 				right: 0;
 				top: 75px;
-				width: 200px;
+				width: 230px;
 				height: auto;
 				padding-inline: 1rem;
 				padding-block: 1rem;
 				border-radius: 7px;
-				background-color: #474b49;
+				background-color: #1f2222;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				gap: 17px;
 				.contentsDiv {
 					h2 {
 						color: #fff;
 						font-weight: 400;
-						font-size: 0.8rem;
+						font-size: 0.7rem;
+					}
+					border-bottom: 1px solid #fff;
+				}
+				.profileDiv {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					img {
+						width: 20px;
+						height: 20px;
+						border-radius: 31%;
+					}
+					p {
+						color: #c2c5cd;
+						font-weight: 350;
+						font-size: 15px;
+					}
+				}
+				.p {
+					color: #ffffff;
+					font-weight: 400;
+					font-size: 14px;
+					border-bottom: 1px solid #fff;
+				}
+				.buttonsAndTexts {
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					gap: 6.6px;
+					// justify-content: center;
+					p {
+						color: #fff;
+						font-weight: 400;
+						font-size: 14px;
+						width: 195px;
+						height: 32px;
+						padding-left: 5px;
+						display: flex;
+						align-items: center;
+						border-bottom: 1px solid #fff;
+						&:hover {
+							transition: all 0.2s ease;
+							background-color: #656b68;
+
+							border-radius: 7px;
+						}
+					}
+					button {
+						width: 195px;
+						padding-block: 2px;
+						border-radius: 8px;
+						border: none;
+						color: #fff;
+						font-weight: 400;
+						font-size: 1rem;
+						display: flex;
+						align-items: center;
+						p {
+							color: #fff;
+							font-weight: 400;
+							font-size: 0.9rem;
+							text-align: start;
+						}
+						&:hover {
+							transition: all 0.2s ease;
+							background-color: #656b68;
+						}
 					}
 				}
 			}
