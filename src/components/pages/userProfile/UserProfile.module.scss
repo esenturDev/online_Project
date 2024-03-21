@@ -1,9 +1,9 @@
 .userProfile {
 	.content {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-around;
 		align-items: start;
-		padding-inline: 2.5rem;
+		// padding-inline: 2.5rem;
 		// padding-block: 2rem;
 		.navbar {
 			// position: fixed;
@@ -11,7 +11,9 @@
 			// // top: 0;
 			display: flex;
 			align-items: start;
-			width: 325px;
+			width: 225px;
+			position: relative;
+			left: 0;
 			height: 100vh;
 			gap: 5rem;
 			flex-direction: column;
@@ -37,11 +39,12 @@
 		}
 		.contentsDiv1 {
 			display: flex;
-			justify-content: space-around;
+			justify-content: space-between;
 			align-items: start;
 			padding-inline: 3rem;
 			padding-block: 3rem;
 			background-color: papayawhip;
+			gap: 2rem;
 			.contentsDivProfile {
 				display: flex;
 				flex-direction: column;
@@ -51,7 +54,8 @@
 				width: 400px;
 				height: 550;
 				padding-inline: 1.5rem;
-				border-radius: 9px;
+				border-radius: 12px;
+				background-color: #fff;
 				img {
 					width: 100%;
 					height: auto;
@@ -97,10 +101,134 @@
 				display: flex;
 				flex-direction: column;
 				gap: 2.1rem;
+				// background-color: #fff;
+				// width: 400px;
+				// height: auto;
+
 				.divTexts1 {
 					display: flex;
+					align-items: center;
+					padding-block: 1.5rem;
+					justify-content: center;
+					background-color: #fff;
+					width: 400px;
+					height: auto;
+					border-radius: 12px;
+
+					gap: 3.2rem;
+					.divCard1 {
+						display: flex;
+						flex-direction: column;
+						gap: 1.2rem;
+						.div11 {
+							display: flex;
+							align-items: center;
+							gap: 3.2rem;
+							p {
+								color: black;
+								font-weight: 650;
+								font-size: 1.2rem;
+							}
+							.divContent1 {
+								display: flex;
+								align-items: center;
+								gap: 3.2rem;
+								img {
+									width: 25px;
+									height: 25px;
+								}
+								button {
+									background-color: #ccc;
+									color: rgb(20, 19, 19);
+									font-weight: 400;
+									font-size: 16px;
+									padding-block: 8px;
+									padding-inline: 13px;
+									border-radius: 12px;
+									border: none;
+								}
+							}
+						}
+						.div2Border {
+							width: 85%;
+							height: 1px;
+							border: 1px solid black;
+						}
+						.div22 {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+							p {
+								color: rgb(24, 23, 23);
+								font-weight: 450;
+								font-size: 17px;
+							}
+							button {
+								background-color: rgba(64, 222, 64, 0.828);
+								color: #fff;
+								font-weight: 450;
+								font-size: 18px;
+								padding-block: 9px;
+								padding-inline: 0.9rem;
+								border-radius: 14px;
+								border: none;
+							}
+						}
+					}
+				}
+				.divTexts2 {
+					display: flex;
 					flex-direction: column;
-					gap: 1.2rem;
+					align-items: center;
+					padding-block: 1rem;
+					background-color: #fff;
+					width: 400px;
+					height: auto;
+					border-radius: 12px;
+					gap: 2rem;
+					.div2Content1 {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						p {
+							color: black;
+							font-weight: 450;
+							font-size: 18px;
+						}
+						button {
+							background-color: #ccc;
+							color: black;
+							font-weight: 450;
+							font-size: 15px;
+							border-radius: 12px;
+							border: none;
+						}
+					}
+					.div2BorderDiv {
+						width: 85%;
+						height: 1px;
+						border: 1px solid black;
+					}
+					.divContentsIsDiv2 {
+						display: flex;
+						align-items: center;
+						gap: 9rem;
+						p {
+							color: black;
+							font-size: 17px;
+							font-weight: 550;
+						}
+						button {
+							background-color: rgb(110, 30, 110);
+							color: #fff;
+							padding-block: 0.6rem;
+							padding-inline: 0.7rem;
+							border-radius: 12px;
+							border: none;
+							font-size: 17px;
+							font-weight: 550;
+						}
+					}
 				}
 			}
 		}

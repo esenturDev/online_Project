@@ -4,6 +4,7 @@ import iconHuman from "../../../assets/heart-3-line (1).svg";
 import iconMobile from "../../../assets/smartphone-fill.svg";
 import iconMessage from "../../../assets/message-2-line.svg";
 import iconSupports from "../../../assets/store-2-fill.svg";
+import iconSearch from "../../../assets/search-line (3).svg";
 
 const UserProfile = () => {
 	return (
@@ -51,15 +52,44 @@ const UserProfile = () => {
 						</div>
 						<div className={scss.div2Contents}>
 							<div className={scss.divTexts1}>
-								<div>
-									<p>My xPay accounts</p>
-									<div>
-										<img src="" alt="" />
-										<button>Edit</button>
+								<div className={scss.divCard1}>
+									<div className={scss.div11}>
+										<p>My xPay accounts</p>
+										<div className={scss.divContent1}>
+											<img src={iconSearch} alt="icon Search" />
+											<button>Edit</button>
+										</div>
+									</div>
+									<div className={scss.div2Border}></div>
+									<div className={scss.div22}>
+										<p>Active account</p>
+										<button>Block Account</button>
 									</div>
 								</div>
 							</div>
-							<div className={scss.divTexts2}></div>
+							<div className={scss.divTexts2}>
+								<div className={scss.div2Content1}>
+									<p>My bills</p>
+									<button>Filter by</button>
+								</div>
+								<div className={scss.div2BorderDiv}></div>
+								<div className={scss.divContentsIsDiv2}>
+									<p>phono bill</p>
+									<button>phono bill</button>
+								</div>
+								<div className={scss.divContentsIsDiv2}>
+									<p>phono bill</p>
+									<button>phono bill</button>
+								</div>
+								<div className={scss.divContentsIsDiv2}>
+									<p>phono bill</p>
+									<button>phono bill</button>
+								</div>
+								<div className={scss.divContentsIsDiv2}>
+									<p>phono bill</p>
+									<button>phono bill</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
