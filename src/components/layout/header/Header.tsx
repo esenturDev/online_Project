@@ -43,6 +43,7 @@ export const Header: FC<{
 	const { data: basketProducts = [] } = useGetBasketQuery();
 	const [patchBasket] = usePatchBasketMutation();
 	const [patchBasketMinues] = usePatchBasketMinuesMutation();
+	const [isLayoutStyle, setIsLayoutStyle] = useState<boolean>(false);
 	console.log(basketProducts);
 	const handleProducMinues = async (id: number) => {
 		const newProduct = {
@@ -214,13 +215,15 @@ export const Header: FC<{
 								style={{ color: "blue" }}>
 								Add Products
 							</button>
-							<button
-								style={{ color: "black", backgroundColor: "pink" }}
-								onClick={() => setIsStyleResult(true)}>
-								Режим черный
-							</button>
+						
 							<>
 								<img
+									style={{
+										width: "40px",
+										height: "40px",
+										borderRadius: "30%",
+										marginLeft: "10px",
+									}}
 									onClick={() => setUserProfile(!userProfile)}
 									src="https://w7.pngwing.com/pngs/247/564/png-transparent-computer-icons-user-profile-user-avatar-blue-heroes-electric-blue.png"
 									alt="logo user profile"
@@ -228,10 +231,44 @@ export const Header: FC<{
 								{userProfile ? (
 									<div className={scss.containerDivFixet}>
 										<div className={scss.contentsDiv}>
-											<h2>Hello</h2>
-
+											<h2>УЧЕТНАЯ ЗАПИСЬ</h2>
 										</div>
+										<div className={scss.profileDiv}>
+											<img
+												src="https://w7.pngwing.com/pngs/247/564/png-transparent-computer-icons-user-profile-user-avatar-blue-heroes-electric-blue.png"
+												alt="profile user photo"
+											/>
+											<p>user@gmail.com</p>
+										</div>
+										<p>Online istore.kg😍</p>
 										<div className={scss.buttonsAndTexts}>
+											<p onClick={() => navigate("/profile")}>
+												Профиль и доступ
+											</p>
+											<p>Действия</p>
+											<p>Карточки</p>
+											<p onClick={() => navigate("/basket")}>Корзина</p>
+											<p onClick={() => navigate("/favorites-products")}>
+												Избранные
+											</p>
+											<p>Настройки</p>
+											{isLayoutStyle ? (
+												<>
+													<button 	onClick={() => {
+														setIsStyleResult(true)
+														setIsLayoutStyle(false)
+													}}>Режим dark</button>
+													<button onClick={() => {
+														setIsStyleResult(false)
+														setIsLayoutStyle(false)
+													}}>Режим white</button>
+												</>
+											) : (
+												<>
+													<button onClick={() => setIsLayoutStyle(true)}>Выбор темы</button>
+												</>
+											)}
+
 											<button onClick={removeUsers}>
 												<img src={logo1} alt="logo" />
 											</button>

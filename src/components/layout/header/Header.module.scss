@@ -5,7 +5,7 @@ header {
 	top: 0;
 	width: 100%;
 	backdrop-filter: blur(8px);
-	// z-index: 50;
+	z-index: 50;
 	.content {
 		display: flex;
 		justify-content: space-between;
@@ -41,6 +41,24 @@ header {
 					font-weight: 400;
 					font-size: 0.7rem;
 					margin-bottom: 1px;
+				}
+			}
+			.containerDivFixet {
+				position: fixed;
+				right: 0;
+				top: 75px;
+				width: 200px;
+				height: auto;
+				padding-inline: 1rem;
+				padding-block: 1rem;
+				border-radius: 7px;
+				background-color: #474b49;
+				.contentsDiv {
+					h2 {
+						color: #fff;
+						font-weight: 400;
+						font-size: 0.8rem;
+					}
 				}
 			}
 		}
