@@ -1,5 +1,56 @@
 .userProfile {
-  .content {
-    
-  }
+	.content {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: start;
+		padding-inline: 2.5rem;
+		// padding-block: 2rem;
+		.navbar {
+			// position: fixed;
+			// left: 0;
+			// // top: 0;
+			display: flex;
+			align-items: start;
+			width: 325px;
+			height: 100vh;
+			gap: 5rem;
+			flex-direction: column;
+			// box-shadow: 0px 0px 6px rgb(40, 40, 40);
+			border-right: 1px solid black;
+			padding-block: 2rem;
+			padding-inline: 2rem;
+			div {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+
+				img {
+					width: 1.6rem;
+					height: auto;
+				}
+				p {
+					color: rgb(48, 46, 46);
+					font-weight: 550;
+					font-size: 1.2rem;
+				}
+			}
+		}
+		.contentsDiv1 {
+			display: flex;
+			justify-content: space-around;
+			align-items: start;
+			padding-inline: 3rem;
+			padding-block: 3rem;
+			background-color: papayawhip;
+			.contentsDivProfile {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+        padding-block: 1rem;
+        padding-inline: 1.5rem;
+        border-radius: 9px;
+			}
+		}
+	}
 }

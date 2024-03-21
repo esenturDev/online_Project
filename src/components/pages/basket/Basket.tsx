@@ -8,12 +8,21 @@ const Basket = () => {
 			<div className="container">
 				<div className={scss.content}>
 					{data?.map((item) => (
-						<div key={item._id}>
-							<img src={item.product.photoUrl} alt={item.productName} />
-							<p>{item.product.productName}</p>
-							<p>{item.product.price}</p>
-							<p>{item.product.quantity}</p>
-						</div>
+						<>
+							<div className={scss.basketCard} key={item._id}>
+								<img src={item.product.photoUrl} alt={item.productName} />
+								<h2>{item.product.productName}</h2>
+								<p>{item.product.price} $</p>
+								<div className={scss.productAddPluesAndMinues}>
+									<button>+</button>
+									<p>{item.product.quantity} шт</p>
+									<button>-</button>
+								</div>
+							</div>
+							<div className={scss.buttonDivAddProduct}>
+								<button>Купить</button>
+							</div>
+						</>
 					))}
 				</div>
 			</div>
