@@ -43,6 +43,23 @@ const UserProfile = () => {
 								<span>Esentur Ismailov</span>
 								<span>+996779674593</span>
 							</div>
+							<p className={scss.ProjectNameText}>
+								Project ONLINE WEP SITE APPLE Shop
+							</p>
+							<div className={scss.borderDiv}></div>
+							<button>Save</button>
+						</div>
+						<div className={scss.div2Contents}>
+							<div className={scss.divTexts1}>
+								<div>
+									<p>My xPay accounts</p>
+									<div>
+										<img src="" alt="" />
+										<button>Edit</button>
+									</div>
+								</div>
+							</div>
+							<div className={scss.divTexts2}></div>
 						</div>
 					</div>
 				</div>

@@ -47,9 +47,61 @@
 				flex-direction: column;
 				align-items: center;
 				gap: 1rem;
-        padding-block: 1rem;
-        padding-inline: 1.5rem;
-        border-radius: 9px;
+				padding-block: 1rem;
+				width: 400px;
+				height: 550;
+				padding-inline: 1.5rem;
+				border-radius: 9px;
+				img {
+					width: 100%;
+					height: auto;
+					border-radius: 8px;
+				}
+				p {
+					color: black;
+					font-weight: 700;
+					font-size: 2rem;
+				}
+				.textsIsAdminProject {
+					display: flex;
+					align-items: center;
+					gap: 1rem;
+					span {
+						color: rgb(18, 17, 17);
+						font-weight: 450;
+						font-size: 15px;
+					}
+				}
+				.ProjectNameText {
+					color: rgb(9, 8, 8);
+					font-size: 17px;
+					font-weight: 425;
+				}
+				.borderDiv {
+					width: 85%;
+					height: 1.5px;
+					border: 1px solid black;
+				}
+				button {
+					background-color: rgb(246, 141, 49);
+					color: black;
+					font-weight: 650;
+					font-size: 16px;
+					padding-block: 10px;
+					padding-inline: 1rem;
+					border-radius: 8px;
+					border: none;
+				}
+			}
+			.div2Contents {
+				display: flex;
+				flex-direction: column;
+				gap: 2.1rem;
+				.divTexts1 {
+					display: flex;
+					flex-direction: column;
+					gap: 1.2rem;
+				}
 			}
 		}
 	}
