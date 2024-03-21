@@ -1,8 +1,37 @@
-import { useGetBasketQuery } from "../../../redux/api/basket/Basket";
+import {
+	useGetBasketQuery,
+	usePatchBasketMinuesMutation,
+	usePatchBasketMutation,
+	usePutPluesMutation,
+} from "../../../redux/api/basket/Basket";
 import scss from "./Basket.module.scss";
 
 const Basket = () => {
 	const { data } = useGetBasketQuery();
+	const [buyProduc] =  usePutPluesMutation();
+	const [patchBasketMinues] = usePatchBasketMinuesMutation();
+	const [patchBasket] =  usePatchBasketMutation();
+
+	const handleProducBuy = async (id: number) => {
+		const newProduc = {
+			quantityToDecrease: 1
+		}
+		await buyProduc({newProduc, id})
+	}
+
+	const handlePluesProduc = async (id: number) => {
+		const newProduc = {
+			quantityToDecrease: -1,
+		};
+		await patchBasket({ newProduc, id });
+	};
+
+	const handleBasketMinues = async (id: number) => {
+		const newProduct = {
+			quantityToDecrease: +1,
+		};
+		await patchBasketMinues({ newProduct, id });
+	};
 	return (
 		<div className={scss.basketPages}>
 			<div className="container">
@@ -14,13 +43,15 @@ const Basket = () => {
 								<h2>{item.product.productName}</h2>
 								<p>{item.product.price} $</p>
 								<div className={scss.productAddPluesAndMinues}>
-									<button>+</button>
+									<button onClick={() => handlePluesProduc(item.product._id)}>+</button>
 									<p>{item.product.quantity} шт</p>
-									<button>-</button>
+									<button onClick={() => handleBasketMinues(item.product._id)}>
+										-
+									</button>
 								</div>
 							</div>
 							<div className={scss.buttonDivAddProduct}>
-								<button>Купить</button>
+								<button onClick={() =>handleProducBuy(item.product._id) }>Купить</button>
 							</div>
 						</>
 					))}
