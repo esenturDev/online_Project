@@ -19,7 +19,13 @@ const Button: FC<ButtonProps> = ({
 				variant === "primary" ? "btn-primary" : "btn-secondary"
 			}`}
 			{...rest}
-			style={{ backgroundColor: color, width }}>
+			style={{
+				backgroundColor: color,
+				width,
+				height: "32px",
+				borderRadius: "8px",
+				border: "nome",
+			}}>
 			{children}
 		</button>
 	);

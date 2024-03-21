@@ -23,7 +23,7 @@ const LoginPages = () => {
 		type: "submit",
 		variant: "primary",
 		color: "blue",
-		width: "300px",
+		width: "348px",
 	};
 	return (
 		<div className={scss.loginPages}>
@@ -46,8 +46,9 @@ const LoginPages = () => {
 										<p>Авторизация</p>
 									</div>
 									<div className={scss.inputAndButtons}>
-										<Field 
-										className={scss.inputs}
+										<label>Email</label>
+										<Field
+											className={scss.inputs}
 											id={"email"}
 											name={"email"}
 											type="email"
@@ -56,6 +57,7 @@ const LoginPages = () => {
 										{touched.email && errors.email ? (
 											<div style={{ color: "red" }}>{errors.email}</div>
 										) : null}
+										<label>Password</label>
 										<Field
 											className={scss.inputs}
 											id={"password"}
@@ -67,7 +69,9 @@ const LoginPages = () => {
 											<div style={{ color: "red" }}>{errors.password}</div>
 										) : null}
 										<Button {...buttonInitialValue}>Продолжить</Button>
-										<button className={scss.buttonRegister} onClick={() => navigate("/registr")}>
+										<button
+											className={scss.buttonRegister}
+											onClick={() => navigate("/registr")}>
 											Регистрация
 										</button>
 										<button className={scss.buttonicon}>
