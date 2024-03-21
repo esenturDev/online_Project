@@ -11,6 +11,7 @@ import { Resistr } from "../pages/Resistr";
 import Home from "../pages/Home";
 import { FaveriProductsResult } from "../pages/FaveriProductsResult";
 import { BasketPages } from "../pages/BasketPages";
+import { UserProfilePages } from "../pages/UserProfilePages";
 const Layout = () => {
 	const { pathname } = useLocation();
 	const [isStyleResult, setIsStyleResult] = useState(false);
@@ -51,6 +52,7 @@ const Layout = () => {
 						element={<FaveriProductsResult />}
 					/>
 					<Route path="/basket" element={<BasketPages />} />
+					<Route path="/profile" element={<UserProfilePages/>}/>
 					<Route path="*" element={<Error />} />
 				</Routes>
 			</main>
