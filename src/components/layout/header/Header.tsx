@@ -3,12 +3,13 @@ import { FC, useEffect, useState } from "react";
 import scss from "./Header.module.scss";
 import { createPortal } from "react-dom";
 import Modal from "../../Ul/modal/Modal";
-import logo1 from "../../../assets/photos/Button - Войти (1).png";
+// import logo1 from "../../../assets/photos/Button - Войти (1).png";
 import logo2 from "../../../assets/photos/Button - Избранное (2).png";
 import { ProductsInputResult } from "../../../utils/ProductsValidetes";
 import Button, { ButtonProps } from "../../Ul/button/Button";
 import { Field, Form, Formik } from "formik";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
 	useGetProductsQuery,
 	usePostProductsMutation,
@@ -113,30 +114,7 @@ export const Header: FC<{
 			quantity,
 			photoUrl,
 		});
-		// if (result) {
-		// 	toast.success("🦄 Wow so easy!", {
-		// 		position: "top-center",
-		// 		autoClose: 3000,
-		// 		hideProgressBar: false,
-		// 		closeOnClick: true,
-		// 		pauseOnHover: true,
-		// 		draggable: true,
-		// 		progress: undefined,
-		// 		theme: "dark",
-		// 		transition: Bounce,
-		// 	});
-		// }
-		toast.success("🦄 Wow so easy!", {
-			position: "top-center",
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: "dark",
-			transition: Bounce,
-		});
+		toast.success("🦄 Wow so easy!");
 		setIsOpenModal(false);
 	};
 	function result() {
@@ -172,7 +150,6 @@ export const Header: FC<{
 	};
 	return (
 		<>
-			<ToastContainer />
 			<header>
 				<div className="container">
 					<div className={scss.content}>
@@ -242,20 +219,25 @@ export const Header: FC<{
 										</div>
 										<p className={scss.p}>Online istore.kg😍</p>
 										<div className={scss.buttonsAndTexts}>
-											<p onClick={() => {
-												navigate("/profile")
-												setUserProfile(false)
-											}}>
+											<p
+												onClick={() => {
+													navigate("/profile");
+													setUserProfile(false);
+												}}>
 												Профиль и доступ
 											</p>
-											<p onClick={() => {
-												navigate("/basket")
-												setUserProfile(false)
-											}}>Корзина</p>
-											<p onClick={() => {
-												navigate("/favorites-products")
-												setUserProfile(false)
-											}}>
+											<p
+												onClick={() => {
+													navigate("/basket");
+													setUserProfile(false);
+												}}>
+												Корзина
+											</p>
+											<p
+												onClick={() => {
+													navigate("/favorites-products");
+													setUserProfile(false);
+												}}>
 												Избранные
 											</p>
 											<p>Действия</p>
@@ -474,6 +456,7 @@ export const Header: FC<{
 					</Modal2>,
 					document.getElementById("modal") as any
 				)}
+			<ToastContainer />
 		</>
 	);
 };
