@@ -3,34 +3,42 @@ import scss from "./ProducId.module.scss";
 import { useGetItenIdProducQuery } from "../../../redux/api/product";
 import vidoeIsIphone from "../../../assets/vid/large_2x.mp4";
 import vidoeIsIphone2 from "../../../assets/vid/large_2x (1).mp4";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import { usePatchBasketMinuesMutation, usePatchBasketMutation, usePutPluesMutation } from "../../../redux/api/basket/Basket";
+import {
+	usePatchBasketMinuesMutation,
+	usePatchBasketMutation,
+	usePutPluesMutation,
+} from "../../../redux/api/basket/Basket";
 const ProducId = () => {
-	const [buyProduc] =  usePutPluesMutation();
-	const [patchBasketMinues] =  usePatchBasketMinuesMutation();
-	const [patchBasket] =  usePatchBasketMutation();
+	const [buyProduc] = usePutPluesMutation();
+	const [patchBasketMinues] = usePatchBasketMinuesMutation();
+	const [patchBasket] = usePatchBasketMutation();
 
 	const handlePluesProduc = async (id: number) => {
 		const newProduc = {
 			quantityToDecrease: -1,
 		};
+		toast.success("🦄 Product quantity added successfully!");
 		await patchBasket({ newProduc, id });
 	};
-	
+
 	const handleProducMinues = async (id: number) => {
 		const newProduct = {
 			quantityToDecrease: +1,
 		};
-		await patchBasketMinues({newProduct, id})
-	}
-
+		toast.success("🦄 Product quantity decline successfully!");
+		await patchBasketMinues({ newProduct, id });
+	};
 
 	const handleProducBuy = async (id: number) => {
 		const newProduc = {
-			quantityToDecrease: 1
-		}
-		await buyProduc({newProduc, id})
-	}
+			quantityToDecrease: 1,
+		};
+		toast.success("🦄 Product purchased successfully!");
+		await buyProduc({ newProduc, id });
+	};
 	const [isPhotoProducResultColor1, setIsPhotoProducResultColor1] =
 		useState(true);
 	const [isPhotoProducResultColor2, setIsPhotoProducResultColor2] =
@@ -49,6 +57,7 @@ const ProducId = () => {
 
 	return (
 		<div className={scss.ProducId}>
+			<ToastContainer />
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.producItemId}>
@@ -140,15 +149,23 @@ const ProducId = () => {
 										}>
 										512 gb
 									</button>
-									<button onClick={() => handlePluesProduc(data?._id)}>+</button>
-									<button onClick={() => handleProducMinues(data?._id)}>-</button>
+									<button onClick={() => handlePluesProduc(data?._id)}>
+										+
+									</button>
+									<button onClick={() => handleProducMinues(data?._id)}>
+										-
+									</button>
 								</div>
 							</div>
 							<div className={scss.producPriceDiv}>
 								<p>{data?.price} $</p>
 								<p>{data?.quantity} шт</p>
 								<div className={scss.buttonDiv}>
-									<button className={scss.buttonisAddProduc} onClick={() => handleProducBuy(data?._id)}>Купить</button>
+									<button
+										className={scss.buttonisAddProduc}
+										onClick={() => handleProducBuy(data?._id)}>
+										Купить
+									</button>
 									<button>Оформить в кредит</button>
 									<button>Забронировать</button>
 								</div>
@@ -181,14 +198,16 @@ const ProducId = () => {
 									<br /> воспользовавшись услугой Trade-In.
 								</p>
 								<a href="#">Подробнее</a>
-								<img className={scss.img}
+								<img
+									className={scss.img}
 									src="https://www.istore.kg/media/documents/2023-08-28/istore.svg"
 									alt="logo"
 								/>
 							</div>
 							<div className={scss.productsDiv}>
 								<p>
-									Оформите в рассрочку. <br /> Выгодные условия в <br /> Банках «MBANK» и <br />
+									Оформите в рассрочку. <br /> Выгодные условия в <br /> Банках
+									«MBANK» и <br />
 									«DemirBank»
 									<br /> воспользовавшись услугой Trade-In.
 								</p>
@@ -205,6 +224,7 @@ const ProducId = () => {
 						</div>
 					</div>
 				</div>
+				T
 			</div>
 		</div>
 	);

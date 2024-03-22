@@ -50,6 +50,7 @@ export const Header: FC<{
 		const newProduct = {
 			quantityToDecrease: +1,
 		};
+		toast.success("🦄 Product quantity decline successfully!");
 		await patchBasketMinues({ newProduct, id });
 	};
 	// interface QuantityResult {
@@ -60,6 +61,7 @@ export const Header: FC<{
 		const newProduc = {
 			quantityToDecrease: -1,
 		};
+		toast.success("🦄 Product quantity added successfully!");
 		await patchBasket({ newProduc, id });
 	};
 
@@ -86,6 +88,7 @@ export const Header: FC<{
 		const newProduc = {
 			quantityToDecrease: 1,
 		};
+		toast.success("🦄 Product purchased successfully!");
 		// setIsPlues(quantity + 1)
 		await putPlues({ newProduc, id });
 	};
