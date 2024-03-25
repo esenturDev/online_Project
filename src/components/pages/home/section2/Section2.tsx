@@ -69,22 +69,31 @@ export const Section2 = () => {
 												type="text"
 												value={productName}
 												setData={setProductName}
+												placeholder="Название товара"
 											/>
-											<Input type="text" value={price} setData={setPrice} />
+											<Input type="text" value={price} setData={setPrice} 	placeholder="Price"/>
 											<Input
 												type="text"
 												value={quantity}
 												setData={setQuantity}
+												placeholder="Количество в запасе"
 											/>
 											<Input
 												type="url"
 												value={photoUrl}
 												setData={setPhotoUrl}
+												placeholder="photo url"
 											/>
-											<button className={scss.buttonForms2} onClick={() => setItemIdProducEdit(false)}>
+											<button
+												className={scss.buttonForms2}
+												onClick={() => setItemIdProducEdit(false)}>
 												Cancel
 											</button>
-											<button className={scss.buttonForms2} onClick={() => handleEdit(item._id)}>Save</button>
+											<button
+												className={scss.buttonForms2}
+												onClick={() => handleEdit(item._id)}>
+												Save
+											</button>
 										</div>
 									</>
 								) : (
@@ -136,10 +145,8 @@ export const Section2 = () => {
 												/>
 												<img
 													onClick={() => {
-														postBasket(item._id)
-														toast.success(
-															"🦄 "
-														);
+														postBasket(item._id);
+														toast.success("🦄 ");
 													}}
 													src="https://www.istore.kg/static/img/union.svg"
 													alt="logo"
