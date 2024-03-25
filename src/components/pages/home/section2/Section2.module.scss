@@ -24,6 +24,30 @@
 				height: auto;
 				box-shadow: 0px 0px 6px rgb(22, 21, 21);
 			}
+			.inputsDiv {
+				display: flex;
+				flex-direction: column;
+				padding-block: 1.2rem;
+				padding-inline: 1rem;
+				gap: 1.9rem;
+				width: 17rem;
+				align-items: center;
+				.buttonForms2 {
+					padding-block: 7px;
+					padding-inline: 12px;
+					border-radius: 8px;
+					font-size: 16px;
+					font-weight: 400;
+					color: rgb(186, 42, 186);
+					background-color: aliceblue;
+					border: 2px solid rgb(186, 42, 186);
+					&:hover {
+						transition: all 0.3s ease;
+						background-color: rgb(186, 42, 186);
+						color: aliceblue;
+					}
+				}
+			}
 			.link {
 				img {
 					width: 9.4rem;

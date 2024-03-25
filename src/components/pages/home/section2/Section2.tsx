@@ -64,7 +64,7 @@ export const Section2 = () => {
 							<div className={scss.divCards} key={item._id}>
 								{item._id === itemIdProducEdit ? (
 									<>
-										<div>
+										<div className={scss.inputsDiv}>
 											<Input
 												type="text"
 												value={productName}
@@ -81,10 +81,10 @@ export const Section2 = () => {
 												value={photoUrl}
 												setData={setPhotoUrl}
 											/>
-											<button onClick={() => setItemIdProducEdit(false)}>
+											<button className={scss.buttonForms2} onClick={() => setItemIdProducEdit(false)}>
 												Cancel
 											</button>
-											<button onClick={() => handleEdit(item._id)}>Save</button>
+											<button className={scss.buttonForms2} onClick={() => handleEdit(item._id)}>Save</button>
 										</div>
 									</>
 								) : (
@@ -136,9 +136,9 @@ export const Section2 = () => {
 												/>
 												<img
 													onClick={() => {
-														postBasket(item._id);
+														postBasket(item._id)
 														toast.success(
-															"🦄 Product successfully added to cart!"
+															"🦄 "
 														);
 													}}
 													src="https://www.istore.kg/static/img/union.svg"
