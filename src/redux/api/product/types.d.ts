@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 namespace Products {
 	type GetProductsRequest = void;
@@ -6,8 +7,10 @@ namespace Products {
 		productName: string;
 		photoUrl: string;
 		price: string;
+		// __v: string;
 		quantity: string;
 		isFavorite: boolean;
+		product: any
 	}[];
 
 	type PostProductsResponse = {
@@ -22,6 +25,7 @@ namespace Products {
 	}[];
 	type PostProductsRequest = {
 		// _id: number | string;
+		_id: number;
 		productName: string;
 		price: string;
 		quantity: string;
@@ -42,12 +46,12 @@ namespace Products {
 
 	type GetProducRequest = string;
 	type GetProducResponse = {
-		_id: string | number;
+		_id: number | string;
 		productName: string;
 		price: string;
 		quantity: string;
 		photoUrl: string;
-		__v: string;
+		// __v: string;
 	};
 
 	type EditProducRequest = {

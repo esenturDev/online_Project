@@ -49,10 +49,10 @@ const FaveriProductsPages = () => {
 	const [postProducts] = usePostProductsMutation();
 	// const { data: producData = [] } = useGetProductsQuery();
 	const handlePostProducts = async (values: any) => {
-		const { productName, price, quantity, photoUrl } = values;
+		const { productName, price, quantity, photoUrl, _id } = values;
 		console.log("text");
 
-		await postProducts({ productName, price, quantity, photoUrl });
+		await postProducts({ productName, price, quantity, photoUrl, _id });
 		setIsOpenModal(false);
 	};
 	const handleOpenModal = (id: number) => {
@@ -184,6 +184,7 @@ const FaveriProductsPages = () => {
 									quantity: "",
 									price: "",
 									photoUrl: "",
+									_id: 0
 								}}
 								onSubmit={handlePostProducts}
 								validationSchema={ProductsInputResult}>

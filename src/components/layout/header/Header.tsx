@@ -116,6 +116,7 @@ export const Header: FC<{
 			price,
 			quantity,
 			photoUrl,
+			_id: 0
 		});
 		toast.success("🦄 Wow so easy!");
 		setIsOpenModal(false);

@@ -27,10 +27,7 @@ const api = index.injectEndpoints({
 			}),
 			providesTags: ["products"],
 		}),
-		postProducFavorite: build.mutation<
-			Products.PostProductsResponse,
-			Products.PostProductsRequest
-		>({
+		postProducFavorite: build.mutation({
 			query: (_id) => ({
 				url: `favorites-products/${_id}`,
 				method: "POST",

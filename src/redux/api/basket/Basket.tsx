@@ -15,12 +15,9 @@ const api = index.injectEndpoints({
 			}),
 			providesTags: ["products"],
 		}),
-		postBasket: build.mutation<
-			Products.PostProductsResponse,
-			Products.PostProductsRequest
-		>({
-			query: (_id) => ({
-				url: `/basket/${_id}`,
+		postBasket: build.mutation({
+			query: (id) => ({
+				url: `/basket/${id}`,
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("tokenBasket")}`,

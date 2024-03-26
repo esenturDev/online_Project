@@ -16,10 +16,10 @@ const api = index.injectEndpoints({
 			Products.PostProductsResponse,
 			Products.PostProductsRequest
 		>({
-			query: ({ productName, price, quantity, photoUrl }) => ({
+			query: ({ productName, price, quantity, photoUrl, _id }) => ({
 				url: "products",
 				method: "POST",
-				body: { productName, price, quantity, photoUrl },
+				body: { productName, price, quantity, photoUrl, _id },
 			}),
 			invalidatesTags: ["products"],
 		}),
