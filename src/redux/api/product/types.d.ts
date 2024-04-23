@@ -46,7 +46,7 @@ namespace Products {
 
 	type GetProducRequest = string;
 	type GetProducResponse = {
-		_id: number | string;
+		_id: number;
 		productName: string;
 		price: string;
 		quantity: string;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { useNavigate, useParams } from "react-router";
 import scss from "./ProducId.module.scss";
 import { useGetItenIdProducQuery } from "../../../redux/api/product";
@@ -149,10 +150,10 @@ const ProducId = () => {
 										}>
 										512 gb
 									</button>
-									<button onClick={() => handlePluesProduc(data?._id)}>
+									<button onClick={() => handlePluesProduc(data?._id!)}>
 										+
 									</button>
-									<button onClick={() => handleProducMinues(data?._id)}>
+									<button onClick={() => handleProducMinues(data?._id!)}>
 										-
 									</button>
 								</div>
@@ -163,7 +164,7 @@ const ProducId = () => {
 								<div className={scss.buttonDiv}>
 									<button
 										className={scss.buttonisAddProduc}
-										onClick={() => handleProducBuy(data?._id)}>
+										onClick={() => handleProducBuy(data?._id!)}>
 										Купить
 									</button>
 									<button>Оформить в кредит</button>
